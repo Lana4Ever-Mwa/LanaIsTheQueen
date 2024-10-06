@@ -1,4 +1,4 @@
-Silent = {
+getgenv().Silent = {
     Settings = {
         Toggled = true,
         AimPart = "HumanoidRootPart",
@@ -7,7 +7,7 @@ Silent = {
             Toggled = true,
             Horizontal = 0.14185714285714,
             Vertical = 0.12042857142857,
-            JumpOffset = -0.06,
+             JumpOffset = -0.06,
         },
         Circle = {
             Visible = true,
