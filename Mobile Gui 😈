@@ -67,7 +67,7 @@ getgenv().Silent = {
     Settings = {
         Toggled = true,
         AimPart = "HumanoidRootPart", --&gt; HumanoidRootPart, UpperTorso, LowerTorso, Head &lt;-- Main Parts
-        HitChance = 100, 
+        HitChance = 999, 
         
         Prediction = {
             Enabled = true,
@@ -938,8 +938,8 @@ local Button = LocksTab:CreateButton({
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 Dahood Games Silent-Aim Script:
 - Release Date: 2024/10/5
-- Last Update: 2024/10/5
-- Verison: 1.0.0
+- Last Update: 2024/10/6
+- Verison: 1.0.2
 ]]--
 
 --// Script \\--
@@ -949,7 +949,7 @@ getrenv().Script = {
             Enabled = true,
             TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
             AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
-            HitChance = 100, --> HitChance Percentage <--
+            HitChance = 999, --> HitChance Percentage <--
             
             Prediction = {
                 Enabled = true,
