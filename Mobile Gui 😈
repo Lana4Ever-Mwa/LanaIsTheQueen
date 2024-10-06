@@ -1,0 +1,1072 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "😝Gui For Mobile Baddies😝",
+   LoadingTitle = "Baddie Hub For Mobile",
+   LoadingSubtitle = "By LanaIsTheBest😘",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "BaddieHub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local LocksTab = Window:CreateTab("🔫Locks🔫", nil) -- Title, Image
+local LocksSection = LocksTab:CreateSection("Locks")
+
+    Rayfield:Notify({
+   Title = "You've excuted the mobile script!",
+   Content = "use k tool to hide gui",
+   Duration = 3,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Vascal CamLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Stomp-Shop-Da-Strike-PSXbox-Vascal-Lock-14629"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Vascal Streamable",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/Sub-to-vascal/main/Vascal-Streamable"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Xora Silent Aim Bypassed",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))() --&gt; DO NOT DELETE
+
+getgenv().Silent = {
+    Settings = {
+        Toggled = true,
+        AimPart = "HumanoidRootPart", --&gt; HumanoidRootPart, UpperTorso, LowerTorso, Head &lt;-- Main Parts
+        HitChance = 100, 
+        
+        Prediction = {
+            Enabled = true,
+            Horizontal = 0.12566, --&gt; X, Z
+            Vertical = 0.12566, --&gt; Y
+        },
+       
+        Circle = {
+            Visible = false,
+            Color = Color3.fromRGB(246, 43, 188),
+            Transparency = 10,
+            Thickness = 1.5,
+            NumSides = 1000,
+            Radius = 80, --&gt; Change Circle Size Here
+            Filled = false,
+        },
+    },
+}
+
+-- Basic Silent-Aim [ DAHOOD GAMES ]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/Scripts/Basic%20Silent-Aim", true))()
+   end,
+})
+
+local AntiLockTab = Window:CreateTab("🚫AntiLock🚫", nil) -- Title, Image
+local Section = AntiLockTab:CreateSection("AntiLocks")
+
+local Button = AntiLockTab:CreateButton({
+   Name = "KirbsWare AntiLock",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/wenny69420/KirbswareScripts/main/MobileV3'))()
+   end,
+})
+
+local Button = AntiLockTab:CreateButton({
+   Name = "Vascal AntiLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/Sub-to-vascal/main/Vascal-Antilock-tool"))()
+   end,
+})
+
+local FlyScriptsTab = Window:CreateTab("✈FlyScripts✈", nil) -- Title, Image
+local Section = FlyScriptsTab:CreateSection("FlyScripts")
+
+local Button = FlyScriptsTab:CreateButton({
+   Name = "Flying Script IOS",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/dahoodios/main/hoodcustomfly", true))()
+   end,
+})
+
+local Button = FlyScriptsTab:CreateButton({
+   Name = "Flying Script",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Fly-script-v3-16742"))()
+   end,
+})
+
+local RightClickandMoreTab = Window:CreateTab("❓RightClickandMore❓", nil) -- Title, Image
+local Section = RightClickandMoreTab:CreateSection("RightClickandMore")
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "RightClick",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/RightClick"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Swag Mode DH",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Chat Spammer",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/IncognitoChat-Hangout-or-UNIVERSAL-V2-17194"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Macro Mobile",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/macromobbyballigusapo"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "KeyBoard",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "ResolverLagsInSomeGames",
+   Callback = function()
+   local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local localPlayer = Players.LocalPlayer
+
+local ScreenGui = Instance.new("ScreenGui")
+local ToggleButton = Instance.new("TextButton")
+local Frame = Instance.new("Frame")
+local NotificationFrame = Instance.new("Frame")
+local NotificationText = Instance.new("TextLabel")
+local NotificationTitle = Instance.new("TextLabel")
+
+ScreenGui.Name = "ToggleScriptGUI"
+ScreenGui.ResetOnSpawn = false -- Prevent GUI from being destroyed on respawn
+ScreenGui.Parent = localPlayer:WaitForChild("PlayerGui")
+
+Frame.Name = "MainFrame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 60)
+Frame.Position = UDim2.new(0, 50, 0, 50)
+Frame.Size = UDim2.new(0, 200, 0, 100)
+Frame.Active = true
+Frame.Draggable = true
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 16)
+UICorner.Parent = Frame
+
+local UIGradient = Instance.new("UIGradient")
+UIGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(10, 10, 40)),
+    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 40, 80))
+}
+UIGradient.Parent = Frame
+
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = Frame
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 100, 255)
+ToggleButton.Position = UDim2.new(0.1, 0, 0.3, 0)
+ToggleButton.Size = UDim2.new(0.8, 0, 0.4, 0)
+ToggleButton.Text = "Resolver: OFF"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.Font = Enum.Font.SourceSansBold
+ToggleButton.TextSize = 18
+
+local ButtonUICorner = Instance.new("UICorner")
+ButtonUICorner.CornerRadius = UDim.new(0, 16)
+ButtonUICorner.Parent = ToggleButton
+
+local ButtonUIGradient = Instance.new("UIGradient")
+ButtonUIGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 150, 255)),
+    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 50, 150))
+}
+ButtonUIGradient.Parent = ToggleButton
+
+-- this shows the notification for the one who made it, skidders remove this but idc, you can change it, fuck skidders ???? 
+NotificationFrame.Name = "NotificationFrame"
+NotificationFrame.Parent = ScreenGui
+NotificationFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NotificationFrame.BackgroundTransparency = 0.5
+NotificationFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+NotificationFrame.Size = UDim2.new(0, 200, 0, 100)
+
+local NotificationUICorner = Instance.new("UICorner")
+NotificationUICorner.CornerRadius = UDim.new(0, 16)
+NotificationUICorner.Parent = NotificationFrame
+
+NotificationTitle.Name = "NotificationTitle"
+NotificationTitle.Parent = NotificationFrame
+NotificationTitle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NotificationTitle.BackgroundTransparency = 1
+NotificationTitle.Size = UDim2.new(1, 0, 0.4, 0)
+NotificationTitle.Font = Enum.Font.SourceSansBold
+NotificationTitle.Text = "Resolver OP"
+NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotificationTitle.TextSize = 24
+
+NotificationText.Name = "NotificationText"
+NotificationText.Parent = NotificationFrame
+NotificationText.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NotificationText.BackgroundTransparency = 1
+NotificationText.Position = UDim2.new(0, 0, 0.4, 0)
+NotificationText.Size = UDim2.new(1, 0, 0.6, 0)
+NotificationText.Font = Enum.Font.SourceSans
+NotificationText.Text = "Made By @ Ovni"  -- Changed here
+NotificationText.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotificationText.TextSize = 18
+
+wait(5)
+NotificationFrame:Destroy()
+
+local scriptEnabled = false
+local connection
+
+local function onHeartbeat()
+    for _, Target in pairs(Players:GetPlayers()) do
+        if Target ~= localPlayer and Target.Character then
+            for _, Part in pairs(Target.Character:GetDescendants()) do
+                if Part:IsA("BasePart") then
+                    Part.Velocity = Target.Character.Humanoid.MoveDirection * 16
+                    Part.AssemblyLinearVelocity = Target.Character.Humanoid.MoveDirection * 16
+                end
+            end
+        end
+    end
+end
+
+ToggleButton.MouseButton1Click:Connect(function()
+    scriptEnabled = not scriptEnabled
+    if scriptEnabled then
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+        ToggleButton.Text = "Resolver: ON"
+        ButtonUIGradient.Color = ColorSequence.new{
+            ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 150)),
+            ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 150, 50))
+        }
+        if not connection then
+            connection = RunService.Heartbeat:Connect(onHeartbeat)
+        end
+    else
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 100, 255)
+        ToggleButton.Text = "Resolver: OFF"
+        ButtonUIGradient.Color = ColorSequence.new{
+            ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 150, 255)),
+            ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 50, 150))
+        }
+        if connection then
+            connection:Disconnect()
+            connection = nil
+        end
+    end
+end)
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "AntiCheatBypass",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Adonis-Anticheat-Bypass-11111"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "FpsBoostandLagReducer",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FpsBoost-9260"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "FpsBoostandLagReducer2",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FPS-BOOST-2022-3864"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "BaldsLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/sdfesdfsedf/srgtergasdfs/main/wwwwwww", true))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Ace CamLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Totocoems/Ace/main/Ace"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "K Tool Hides GUI",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/k-tool/main/k-tool", true))()
+   end,
+})
+
+local ExploitsTab = Window:CreateTab("😈Exploits😈", nil) -- Title, Image
+local Section = ExploitsTab:CreateSection("Exploits")
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Azure Exploits",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigma-3131/Scripts/main/Azure%20Mobile"))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Elysian Exploits",
+   Callback = function()
+   getgenv().Elysian = {
+    ['Camlock'] = {
+        ['Manual Prediction'] = 0.1475,
+        ['Auto Prediction'] = {
+            ['Enabled'] = true,
+            ['Ping'] = {
+                ['20'] = 0.10036,
+                ['30'] = 0.1130,
+                ['40'] = 0.13544,
+                ['50'] = 0.1357,
+                ['60'] = 0.13598,
+                ['70'] = 0.13892,
+                ['80'] = 0.1403,
+                ['90'] = 0.1446,
+                ['100'] = 0.1475
+            }
+        },
+        ['Smoothing'] = {
+            ['Enabled'] = false,
+            ['Value'] = 0.013
+        },
+        ['Offset'] = {
+            ['Jump'] = -1,
+            ['Fall'] = -1,
+        },
+        ['Auto Shoot'] = true,
+        ['Airshot Function'] = {
+            ['Enabled'] = true,
+            ['Part'] = "LowerTorso"
+        },
+        ['Target Part'] = "HumanoidRootPart"
+    },
+    ['HvH'] = {
+        ['Target Strafe'] = {
+            ['Enabled'] = true,
+            ['Speed'] = 100,
+            ['Distance'] = 10,
+            ['Height'] = 7,
+        },
+        ['Cframe Walk'] = {
+            ['Enabled'] = true,
+            ['Amount'] = 3
+        }
+    }
+}
+
+local userInputService = game:GetService("UserInputService")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local players = game:GetService("Players")
+local runService = game:GetService("RunService")
+local client = players.LocalPlayer
+local camera = workspace.CurrentCamera
+local CoreGui = game:GetService("CoreGui")
+local HttpService = game:GetService("HttpService")
+
+local Locking = false
+local Plr = nil
+local strafing = false
+local cframing = false
+local auto_shooting = false
+
+local playerData = {}
+local SMOOTHNESS_FACTOR = 2
+
+local function GetEvent()
+    for _, v in pairs(game.ReplicatedStorage:GetChildren()) do
+        if v.Name == "MainEvent" or v.Name == "Bullets" or v.Name == ".gg/untitledhood" or v.Name == "Remote" or v.Name == "MAINEVENT" or v.Name == ".gg/flamehood" then
+            return v
+        end
+    end
+end
+
+local function GetArgs()
+    local PlaceId = game.PlaceId
+    if PlaceId == 2788229376 or PlaceId == 4106313503 or PlaceId == 11143225577 or PlaceId == 17319408836 or PlaceId == 18110728826 then
+        return "UpdateMousePosI"
+    elseif PlaceId == 5602055394 or PlaceId == 7951883376 then
+        return "MousePos"
+    elseif PlaceId == 10100958808 or PlaceId == 12645617354 or PlaceId == 14171242539 or PlaceId == 14412436145 or PlaceId == 14412355918 or PlaceId == 14413720089 or PlaceId == 17403265390 or PlaceId == 17403166075 or PlaceId == 17403262882 or PlaceId == 15186202290 or PlaceId == 15763494605 then
+        return "MOUSE"
+    elseif PlaceId == 9825515356 then
+        return "MousePosUpdate"
+    elseif PlaceId == 15166543806 then
+        return "MoonUpdateMousePos"
+    elseif PlaceId == 16033173781 or PlaceId == 7213786345 then
+        return "UpdateMousePosI"
+    else
+        return "UpdateMousePos"
+    end
+end
+
+local mainEvent = GetEvent()
+
+function GetClosestToCenter()
+    local closestDist = math.huge
+    local closestPlr = nil
+    local screenCenter = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 2)
+    
+    for _, v in ipairs(players:GetPlayers()) do
+        if v ~= client and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            local screenPos, onScreen = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+            if onScreen then
+                local distToCenter = (Vector2.new(screenPos.X, screenPos.Y) - screenCenter).Magnitude
+                if distToCenter < closestDist then
+                    closestPlr = v
+                    closestDist = distToCenter
+                end
+            end
+        end
+    end
+    return closestPlr
+end
+
+local function getPart()
+    if not Plr or not Plr.Character then
+        return nil
+    end
+
+    local humanoid = Plr.Character:FindFirstChild("Humanoid")
+    if not humanoid then
+        return nil
+    end
+
+    if humanoid:GetState() == Enum.HumanoidStateType.Freefall and getgenv().Elysian['Camlock']['Airshot Function']['Enabled'] then
+        local airshotPart = Plr.Character:FindFirstChild(getgenv().Elysian['Camlock']['Airshot Function']['Part'])
+        if airshotPart then
+            return airshotPart
+        end
+    end
+
+    local targetPart = Plr.Character:FindFirstChild(getgenv().Elysian['Camlock']['Target Part'])
+    if targetPart then
+        return targetPart
+    end
+
+    return Plr.Character:FindFirstChild("HumanoidRootPart")
+end
+
+local function getPredictionValue()
+    if getgenv().Elysian['Camlock']['Auto Prediction']['Enabled'] then
+        local ping = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue())
+        local pingTable = getgenv().Elysian['Camlock']['Auto Prediction']['Ping']
+        
+        for i = ping, 0, -1 do
+            if pingTable[tostring(i)] then
+                return pingTable[tostring(i)]
+            end
+        end
+        
+        return pingTable['100']
+    else
+        return getgenv().Elysian['Camlock']['Manual Prediction']
+    end
+end
+
+local function calculatePosition(victim, velocity)
+    local prediction = getPredictionValue()
+    local jumpOffset = getgenv().Elysian['Camlock']['Offset']['Jump']
+    local fallOffset = getgenv().Elysian['Camlock']['Offset']['Fall']
+    
+    local playerData = playerData[victim.Parent.Parent]
+    if not playerData then
+        playerData = {
+            SmoothedVelocity = velocity
+        }
+        playerData[victim.Parent.Parent] = playerData
+    end
+    
+    playerData.SmoothedVelocity = playerData.SmoothedVelocity:Lerp(velocity, 0.5)
+    
+    local pos = victim.Position + playerData.SmoothedVelocity * prediction
+
+    if victim.Parent and victim.Parent:FindFirstChild("Humanoid") then
+        local humanoid = victim.Parent.Humanoid
+        if humanoid:GetState() == Enum.HumanoidStateType.Jumping then
+            pos = pos + Vector3.new(0, jumpOffset, 0)
+        elseif humanoid:GetState() == Enum.HumanoidStateType.Freefall then
+            pos = pos + Vector3.new(0, fallOffset, 0)
+        end
+    end
+
+    return pos
+end
+
+local function CharAdded()
+    if Locking and Plr and Plr.Character and playerData[Plr] then
+        local Part = getPart()
+        if Part then
+            local Position = calculatePosition(Part, playerData[Plr].Velocity)
+            mainEvent:FireServer(GetArgs(), Position)
+        end
+    end
+end
+
+client.Character.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") then
+        child.Activated:Connect(CharAdded)
+    end
+end)
+
+client.CharacterAdded:Connect(function(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") then
+            child.Activated:Connect(CharAdded)
+        end
+    end)
+end)
+
+local function Process(player, dT)
+    if not player or not player.Character then
+        return
+    end
+
+    local PrimaryPart = player.Character:FindFirstChild("HumanoidRootPart")
+    if not PrimaryPart then
+        return
+    end
+
+    if not playerData[player] then
+        playerData[player] = {
+            PreviousPosition = PrimaryPart.Position,
+            Velocity = Vector3.new(0, 0, 0),
+            OnScreen = false,
+            ScreenPosition = Vector2.new(0, 0)
+        }
+    end
+
+    local CurrentPosition = PrimaryPart.Position
+    local PreviousPosition = playerData[player].PreviousPosition
+    local Displacement = CurrentPosition - PreviousPosition
+
+    local targetVelocity = Displacement / dT
+    playerData[player].Velocity = playerData[player].Velocity:Lerp(targetVelocity, 0.5)
+    playerData[player].PreviousPosition = CurrentPosition
+    
+    local ScreenPosition, OnScreen = workspace.CurrentCamera:WorldToViewportPoint(CurrentPosition)
+
+    playerData[player].OnScreen = OnScreen
+    playerData[player].ScreenPosition = Vector2.new(ScreenPosition.X, ScreenPosition.Y)
+end
+
+local strafeAngle = 0
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = CoreGui
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local function SavePositions(positions)
+    local json = HttpService:JSONEncode(positions)
+    writefile("button_positions.json", json)
+end
+
+local function LoadPositions()
+    if isfile("button_positions.json") then
+        local json = readfile("button_positions.json")
+        return HttpService:JSONDecode(json)
+    end
+    return {}
+end
+
+local savedPositions = LoadPositions()
+
+local function CreateButton(name, defaultPosition, callback)
+    local Button = Instance.new("TextButton")
+    Button.Size = UDim2.new(0, 100, 0, 50)
+    Button.Position = savedPositions[name] and UDim2.new(0, savedPositions[name].X, 0, savedPositions[name].Y) or defaultPosition
+    Button.Text = name
+    Button.Parent = ScreenGui
+    Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Button.BorderSizePixel = 0
+    Button.Font = Enum.Font.Code
+    Button.TextColor3 = Color3.new(0, 0, 0)
+    Button.TextSize = 16
+    Button.AutoButtonColor = false
+
+    local Corner = Instance.new("UICorner")
+    Corner.CornerRadius = UDim.new(0, 8)
+    Corner.Parent = Button
+
+    local Shadow = Instance.new("Frame")
+    Shadow.Size = UDim2.new(1, 6, 1, 6)
+    Shadow.Position = UDim2.new(0, -3, 0, -3)
+    Shadow.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Shadow.BackgroundTransparency = 0.7
+    Shadow.ZIndex = -1
+    Shadow.Parent = Button
+
+    local ShadowCorner = Instance.new("UICorner")
+    ShadowCorner.CornerRadius = UDim.new(0, 8)
+    ShadowCorner.Parent = Shadow
+
+    local isActive = false
+
+    local function updateButtonState()
+        local targetColor = isActive and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+        local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = game:GetService("TweenService"):Create(Shadow, tweenInfo, {BackgroundColor3 = targetColor})
+        tween:Play()
+    end
+
+    Button.MouseButton1Click:Connect(function()
+        isActive = not isActive
+        updateButtonState()
+        callback(isActive)
+    end)
+
+    local dragStart, startPos
+
+    Button.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragStart = input.Position
+            startPos = Button.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragStart = nil
+                    savedPositions[name] = {X = Button.Position.X.Offset, Y = Button.Position.Y.Offset}
+                    SavePositions(savedPositions)
+                end
+            end)
+        end
+    end)
+
+    Button.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
+            if dragStart then
+                local delta = input.Position - dragStart
+                Button.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end
+    end)
+    
+    return Button, function() return isActive end
+end
+
+local CamlockButton, getCamlockState = CreateButton("Camlock", UDim2.new(0, 10, 0, 10), function(state)
+    Locking = state
+    if Locking then
+        Plr = GetClosestToCenter()
+    else
+        Plr = nil
+    end
+end)
+
+if getgenv().Elysian['HvH']['Target Strafe']['Enabled'] then
+    local StrafeButton, getStrafeState = CreateButton("Strafe", UDim2.new(0, 10, 0, 70), function(state)
+        strafing = state
+    end)
+end
+
+if getgenv().Elysian['HvH']['Cframe Walk']['Enabled'] then
+    local CframeButton, getCframeState = CreateButton("Cframe", UDim2.new(0, 10, 0, 130), function(state)
+        cframing = state
+    end)
+end
+
+if getgenv().Elysian['Camlock']['Auto Shoot'] then
+    local AutoShootButton, getAutoShootState = CreateButton("AutoShoot", UDim2.new(0, 10, 0, 190), function(state)
+        auto_shooting = state
+    end)
+end
+
+local function AutoShoot()
+    if Locking and Plr then
+        local character = client.Character
+        if character then
+            local tool = character:FindFirstChildOfClass("Tool")
+            if tool and tool:IsA("Tool") then
+                tool:Activate()
+            end
+        end
+    end
+end
+
+runService.Heartbeat:Connect(function(dT)
+    for _, player in ipairs(players:GetPlayers()) do
+        if player ~= client then
+            Process(player, dT)
+        end
+    end
+
+    if getgenv().Elysian['HvH']['Target Strafe']['Enabled'] and Locking and strafing and Plr and Plr.Character then
+        local targetHRP = Plr.Character:FindFirstChild("HumanoidRootPart")
+        if targetHRP then
+            strafeAngle = strafeAngle + math.rad(getgenv().Elysian['HvH']['Target Strafe']['Speed'])
+            
+            local distance = getgenv().Elysian['HvH']['Target Strafe']['Distance']
+            local height = getgenv().Elysian['HvH']['Target Strafe']['Height']
+            
+            local offsetX = math.sin(strafeAngle) * distance
+            local offsetZ = math.cos(strafeAngle) * distance
+            local offsetY = math.sin(strafeAngle * 2) * height
+            
+            local predictedPosition = calculatePosition(targetHRP, playerData[Plr].Velocity)
+            local strafePosition = predictedPosition + Vector3.new(offsetX, offsetY, offsetZ)
+            
+            if client.Character and client.Character:FindFirstChild("HumanoidRootPart") then
+                client.Character.HumanoidRootPart.CFrame = CFrame.new(strafePosition, predictedPosition)
+            end
+        end
+    end
+
+    if cframing and getgenv().Elysian['HvH']['Cframe Walk']['Enabled'] and client.Character and client.Character:FindFirstChild("Humanoid") and client.Character:FindFirstChild("HumanoidRootPart") then
+        local hrp = client.Character.HumanoidRootPart
+        local moveDirection = client.Character.Humanoid.MoveDirection
+        hrp.CFrame = hrp.CFrame + (moveDirection * getgenv().Elysian['HvH']['Cframe Walk']['Amount'])
+    end
+
+    if auto_shooting then
+        AutoShoot()
+    end
+end)
+
+runService.RenderStepped:Connect(function()
+    if Locking and Plr and Plr.Character and playerData[Plr] then
+        local Part = getPart()
+        if Part then
+            local Position = calculatePosition(Part, playerData[Plr].Velocity)
+            local Main = CFrame.new(camera.CFrame.p, Position)
+            
+            if getgenv().Elysian['Camlock']['Smoothing']['Enabled'] then
+                camera.CFrame = camera.CFrame:Lerp(Main, getgenv().Elysian['Camlock']['Smoothing']['Value'])
+            else
+                camera.CFrame = Main
+            end
+        end
+    end
+end)
+   end,
+})
+
+local Button = FlyScriptsTab:CreateButton({
+   Name = "Xora Flying Script",
+   Callback = function()
+   loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Mobile%20Fly.lua", true))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Xora TP Walk",
+   Callback = function()
+   loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Tpwalk.lua", true))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "ESP 1",
+   Callback = function()
+   loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Esp-open-source-15582"))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Box ESP",
+   Callback = function()
+   --// Universal Box ESP (Works on Arsenal and other games)
+ 
+-- settings
+local settings = {
+   defaultcolor = Color3.fromRGB(255,0,0),
+   teamcheck = false,
+   teamcolor = true
+};
+ 
+-- services
+local runService = game:GetService("RunService");
+local players = game:GetService("Players");
+ 
+-- variables
+local localPlayer = players.LocalPlayer;
+local camera = workspace.CurrentCamera;
+ 
+-- functions
+local newVector2, newColor3, newDrawing = Vector2.new, Color3.new, Drawing.new;
+local tan, rad = math.tan, math.rad;
+local round = function(...) local a = {}; for i,v in next, table.pack(...) do a[i] = math.round(v); end return unpack(a); end;
+local wtvp = function(...) local a, b = camera.WorldToViewportPoint(camera, ...) return newVector2(a.X, a.Y), b, a.Z end;
+ 
+local espCache = {};
+local function createEsp(player)
+   local drawings = {};
+ 
+   drawings.box = newDrawing("Square");
+   drawings.box.Thickness = 1;
+   drawings.box.Filled = false;
+   drawings.box.Color = settings.defaultcolor;
+   drawings.box.Visible = false;
+   drawings.box.ZIndex = 2;
+ 
+   drawings.boxoutline = newDrawing("Square");
+   drawings.boxoutline.Thickness = 3;
+   drawings.boxoutline.Filled = false;
+   drawings.boxoutline.Color = newColor3();
+   drawings.boxoutline.Visible = false;
+   drawings.boxoutline.ZIndex = 1;
+ 
+   espCache[player] = drawings;
+end
+ 
+local function removeEsp(player)
+   if rawget(espCache, player) then
+       for _, drawing in next, espCache[player] do
+           drawing:Remove();
+       end
+       espCache[player] = nil;
+   end
+end
+ 
+local function updateEsp(player, esp)
+   local character = player and player.Character;
+   if character then
+       local cframe = character:GetModelCFrame();
+       local position, visible, depth = wtvp(cframe.Position);
+       esp.box.Visible = visible;
+       esp.boxoutline.Visible = visible;
+ 
+       if cframe and visible then
+           local scaleFactor = 1 / (depth * tan(rad(camera.FieldOfView / 2)) * 2) * 1000;
+           local width, height = round(4 * scaleFactor, 5 * scaleFactor);
+           local x, y = round(position.X, position.Y);
+ 
+           esp.box.Size = newVector2(width, height);
+           esp.box.Position = newVector2(round(x - width / 2, y - height / 2));
+           esp.box.Color = settings.teamcolor and player.TeamColor.Color or settings.defaultcolor;
+ 
+           esp.boxoutline.Size = esp.box.Size;
+           esp.boxoutline.Position = esp.box.Position;
+       end
+   else
+       esp.box.Visible = false;
+       esp.boxoutline.Visible = false;
+   end
+end
+ 
+-- main
+for _, player in next, players:GetPlayers() do
+   if player ~= localPlayer then
+       createEsp(player);
+   end
+end
+ 
+players.PlayerAdded:Connect(function(player)
+   createEsp(player);
+end);
+ 
+players.PlayerRemoving:Connect(function(player)
+   removeEsp(player);
+end)
+ 
+runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
+   for player, drawings in next, espCache do
+       if settings.teamcheck and player.Team == localPlayer.Team then
+           continue;
+       end
+ 
+       if drawings and player ~= localPlayer then
+           updateEsp(player, drawings);
+       end
+   end
+end)
+
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Xora Advanced Silent",
+   Callback = function()
+   --[[
+ .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ____  ____  | || |              | || |     ____     | || |  _______     | || |      __      | |
+| | |_  _||_  _| | || |              | || |   .'    `.   | || | |_   __ \    | || |     /  \     | |
+| |   \ \  / /   | || |              | || |  /  .--.  \  | || |   | |__) |   | || |    / /\ \    | |
+| |    > `' <    | || |              | || |  | |    | |  | || |   |  __ /    | || |   / ____ \   | |
+| |  _/ /'`\ \_  | || |              | || |  \  `--'  /  | || |  _| |  \ \_  | || | _/ /    \ \_ | |
+| | |____||____| | || |   _______    | || |   `.____.'   | || | |____| |___| | || ||____|  |____|| |
+| |              | || |  |_______|   | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+Dahood Games Silent-Aim Script:
+- Release Date: 2024/10/5
+- Last Update: 2024/10/5
+- Verison: 1.0.0
+]]--
+
+--// Script \\--
+getrenv().Script = {
+    Settings = {
+        SilentAim = {
+            Enabled = true,
+            TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
+            AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
+            HitChance = 100, --> HitChance Percentage <--
+            
+            Prediction = {
+                Enabled = true,
+                Method = "Multiplication", --> Multiplication, Division <--
+                
+                Multiplication = {
+                    Horizontal = 0.14185714285714, --> X and Z | Low Ping: 0.1498127340824, High Ping: 0.24660912453761 <--
+                    Vertical = 0.12042857142857, --> Y | Low Ping: 0.1249063670412, High Ping: 0.16440608302507 <--
+                },
+                
+                Division = {
+                    Horizontal = 7.15, --> X and Z | Low Ping: 6.6749999999999, High Ping: 4.055 <--
+                    Vertical = 8.15, --> Y | Low Ping: 8.0059970014992, High Ping: 6.0824999999999 <--
+                },
+            },
+            
+            Velocity = {
+                Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
+                
+                Minimum = {
+                    X = -math.huge,
+                    Y = -math.huge, --> Make This Between -1 And -2 For Anti-Ground Shots <---
+                    Z = -math.huge,
+                },
+                
+                Maximum = {
+                    X = math.huge,
+                    Y = math.huge,
+                    Z = math.huge,
+                },
+            },
+            
+            Checks = {
+                Wall = false,
+                Knocked = false,
+                Grabbed = false,
+            },
+        },
+        
+        Resolver = {
+            Enabled = false,
+            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction <--
+            
+            RecalculateVelocity = {
+                LastTick = tick(),
+                LastPosition = Vector3.new(0, 0, 0),
+                NewVelocity = Vector3.new(0, 0, 0),
+                RefreshRate = 1200,
+                
+                Smoothness = {
+                    Enabled = true,
+                    Value = 0.4,
+                },
+            },
+            
+            MoveDirection = {
+                Multiplier = 19,
+                NewVelocity = Vector3.new(0, 0, 0),
+                
+                Smoothness = {
+                    Enabled = true,
+                    Value = 0.2,
+                },
+            },
+        },
+        
+        Circle = {
+            Visible = true,
+            Transparency = 1,
+            Color = Color3.fromRGB(246, 198, 208),
+            Radius = 180,
+            Position = "Center", --> Center, Finger, Mouse <--
+            
+            Gradient = {
+                Enabled = true,
+                Rotation = 120,
+                
+                Colors = {
+                    One = Color3.fromRGB(246, 198, 208),
+                    Two = Color3.fromRGB(135, 206, 235),
+                },
+                
+                Animation = {
+                    Enabled = true,
+                    Speed = 2.5,
+                    Offset = Vector2.new(1, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                },
+            },
+            
+            Stroke = {
+                Visible = true,
+                Transparency = 0,
+                Thickness = 2.5,
+                Color = Color3.fromRGB(246, 198, 208),
+                
+                Gradient = {
+                    Enabled = true,
+                    Rotation = 120,
+                    
+                    Colors = {
+                        One = Color3.fromRGB(246, 198, 208),
+                        Two = Color3.fromRGB(135, 206, 235),
+                    },
+                    
+                    Animation = {
+                        Enabled = true,
+                        Speed = 2.5,
+                        Offset = Vector2.new(0, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                    },
+                },
+                
+            },
+        },
+    },
+}
+
+-- Advanced Silent-Aim [ NEW! ]
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20/Advanced%20Silent%20Aim.lua", true))()
+    end,
+})
