@@ -1,22 +1,23 @@
 Silent = {
     Settings = {
-      Toggled = true,
-      AimPart = "HumanoidRootPart",
-      HitChance = 99999,
-      Prediction = {
+        Toggled = true,
+        AimPart = "HumanoidRootPart",
+        HitChance = 999,
+        Prediction = {
             Toggled = true,
             Horizontal = 0.14185714285714,
             Vertical = 0.12042857142857,
-          },
-          Circle = {
-              Visible = true,
-              Color = Color3.fromRGB(246, 198, 208),
-              Transparency = 5,
-              Thickness = 1,
-              NumSides = 1000,
-              Radius = 180,
-              Position = "Center",
-              Filled = false,
+            JumpOffset = -0.06,
+        },
+        Circle = {
+            Visible = true,
+            Color = Color3.fromRGB(246, 198, 208),
+            Transparency = 10,
+            Thickness = 1.5,
+            NumSides = 1000,
+            Radius = 180,
+            Position = "Center",
+             Filled = false,
         },
     },
 }
