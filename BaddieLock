@@ -19,7 +19,6 @@ Settings = {
             Radius = 180,
             Filled = false,
         },      
+        WallCheck = true,
       },
     }
-
--- Basic Baddie-Lock [Dahood Games]
