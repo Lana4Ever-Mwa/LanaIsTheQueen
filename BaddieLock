@@ -8,17 +8,15 @@ Silent = {
             Horizontal = 0.101024560,
             Vertical = 0.100996862,
             JumpOffset = -0.06,
-            
         },
         Circle = {
             Visible = true,
             Color = Color3.fromRGB(246, 198, 208),
-            Transparency = 10,
+            Transparency = 0,
             Thickness = 2,
             NumSides = 100,
-            Radius = 100,
+            Radius = 80,
             Filled = false,
-        },      
+        },
         WallCheck = true,
-    }, 
-}
+    },
