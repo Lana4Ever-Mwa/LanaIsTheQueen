@@ -1,6 +1,8 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
+local shootingEnabled = true  -- Toggle variable to enable/disable shooting
+
 local function createCircle()
     -- Create a ScreenGui
     local screenGui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
@@ -8,7 +10,7 @@ local function createCircle()
     -- Create a Frame for the outline
     local circle = Instance.new("Frame", screenGui)
     circle.Size = UDim2.new(0, 240, 0, 240)  -- Size of the circle (diameter 240 pixels)
-    circle.Position = UDim2.new(0.5, -120, 0.5, -100)  -- Adjusted to center the circle
+    circle.Position = UDim2.new(0.5, -120, 0.5, -120)  -- Adjusted to position the circle higher
     circle.BackgroundTransparency = 1  -- Fully transparent background
     circle.BorderSizePixel = 0  -- No border initially
     circle.ClipsDescendants = true  -- Clip anything that goes outside the frame
@@ -56,5 +58,35 @@ end
 -- Create an outline circle in the middle of the screen
 local circle = createCircle()
 
--- Shoot at players within a radius of 80 units
-shootNearbyPlayers(80)
+-- Function to toggle shooting on and off
+local function toggleShooting()
+    shootingEnabled = not shootingEnabled  -- Toggle the boolean value
+    print("Shooting enabled:", shootingEnabled)
+    
+    if shootingEnabled then
+        shootNearbyPlayers(80)  -- Shoot if enabled
+    end
+end
+
+-- Connect the toggle function to touch input
+local UserInputService = game:GetService("UserInputService")
+
+-- Create a button for mobile touch input
+local touchButton = Instance.new("TextButton", circle)
+touchButton.Size = UDim2.new(1, 0, 1, 0)  -- Full size of the circle
+touchButton.BackgroundTransparency = 1  -- Make button invisible
+touchButton.Text = ""  -- No text
+
+touchButton.MouseButton1Click:Connect(function()
+    toggleShooting()  -- Toggle shooting on button press
+end)
+
+-- Alternatively, for touch events, use this
+UserInputService.TouchTap:Connect(function(touch)
+    local touchPosition = touch.Position
+    -- Check if the touch is within the circle's bounds
+    if (touchPosition.X >= circle.Position.X.Offset) and (touchPosition.X <= circle.Position.X.Offset + circle.Size.X.Offset) and
+       (touchPosition.Y >= circle.Position.Y.Offset) and (touchPosition.Y <= circle.Position.Y.Offset + circle.Size.Y.Offset) then
+        toggleShooting()
+    end
+end)
