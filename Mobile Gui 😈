@@ -137,13 +137,6 @@ local Button = RightClickandMoreTab:CreateButton({
 })
 
 local Button = RightClickandMoreTab:CreateButton({
-   Name = "Swag Mode DH",
-   Callback = function()
-   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
-   end,
-})
-
-local Button = RightClickandMoreTab:CreateButton({
    Name = "Chat Spammer",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/IncognitoChat-Hangout-or-UNIVERSAL-V2-17194"))()
@@ -1069,4 +1062,11 @@ getrenv().Script = {
 -- Advanced Silent-Aim [ NEW! ]
 loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20/Advanced%20Silent%20Aim.lua", true))()
     end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Swag Mode DH",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
+   end,
 })
