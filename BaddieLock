@@ -1,23 +1,27 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
 
 local function createCircle()
     -- Create a ScreenGui
     local screenGui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
 
-    -- Create a Frame to represent the circle
+    -- Create a Frame for the outline
     local circle = Instance.new("Frame", screenGui)
-    circle.Size = UDim2.new(0, 160, 0, 160)  -- Size of the circle (diameter 160 pixels)
-    circle.Position = UDim2.new(0.5, -80, 0.5, -80)  -- Center the circle
-    circle.BackgroundColor3 = Color3.fromRGB(135, 206, 250)  -- Sky blue color
-    circle.BackgroundTransparency = 0.2  -- Slightly transparent
-    circle.BorderSizePixel = 0  -- No border
+    circle.Size = UDim2.new(0, 240, 0, 240)  -- Size of the circle (diameter 240 pixels)
+    circle.Position = UDim2.new(0.5, -120, 0.5, -100)  -- Adjusted to center the circle
+    circle.BackgroundTransparency = 1  -- Fully transparent background
+    circle.BorderSizePixel = 0  -- No border initially
     circle.ClipsDescendants = true  -- Clip anything that goes outside the frame
 
     -- Create a UICorner for rounded edges
     local uiCorner = Instance.new("UICorner", circle)
     uiCorner.CornerRadius = UDim.new(0.5, 0)  -- Make it a circle
+
+    -- Create an outline using a UIStroke
+    local uiStroke = Instance.new("UIStroke", circle)
+    uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border  -- Apply the stroke to the border
+    uiStroke.Color = Color3.fromRGB(135, 206, 250)  -- Sky blue color for the outline
+    uiStroke.Thickness = 2  -- Thickness of the outline set to 2
 
     return circle
 end
@@ -37,19 +41,19 @@ end
 
 local function shootAt(player)
     -- Your shooting logic here
-    print("Shooting at", player.Name)
+    print("Guaranteed hit on", player.Name)
 end
 
 local function shootNearbyPlayers(radius)
     local center = LocalPlayer.Character.HumanoidRootPart.Position  -- Use player's position
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer and isPlayerInCircle(player, center, radius) then
-            shootAt(player)
+            shootAt(player)  -- Automatically "hit" every player in the circle
         end
     end
 end
 
--- Create a circle in the middle of the screen
+-- Create an outline circle in the middle of the screen
 local circle = createCircle()
 
 -- Shoot at players within a radius of 80 units
