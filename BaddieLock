@@ -1,8 +1,8 @@
 Silent = { 
-Settings = {
+    Settings = {
         Toggled = true,
         AimPart = "HumanoidRootPart",
-        HitChance = 999,
+        HitChance = 9999,
         Prediction = {
             Enabled = true,
             Horizontal = 0.101024560,
@@ -13,12 +13,12 @@ Settings = {
         Circle = {
             Visible = true,
             Color = Color3.fromRGB(246, 198, 208),
-            Transparency = 0,
-            Thickness = 1.5,
+            Transparency = 10,
+            Thickness = 2,
             NumSides = 100,
-            Radius = 180,
+            Radius = 100,
             Filled = false,
         },      
         WallCheck = true,
-      },
-    }
+    }, 
+}
