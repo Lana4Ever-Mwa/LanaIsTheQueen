@@ -1,13 +1,13 @@
-Silent = { 
+    Silent = { 
     Settings = {
         Toggled = true,
         AimPart = "HumanoidRootPart",
         HitChance = 9999,
         Prediction = {
-            Enabled = true,
+            Toggled = true,
             Horizontal = 0.101024560,
             Vertical = 0.100996862,
-            JumpOffset = -0.06,
+             JumpOffset = -0.06,
         },
         Circle = {
             Visible = true,
@@ -20,3 +20,4 @@ Silent = {
         },
         WallCheck = true,
     },
+}
