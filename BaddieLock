@@ -1,23 +1,50 @@
-    Silent = { 
-    Settings = {
-        Toggled = true,
-        AimPart = "HumanoidRootPart",
-        HitChance = 9999,
-        Prediction = {
-            Toggled = true,
-            Horizontal = 0.101024560,
-            Vertical = 0.100996862,
-             JumpOffset = -0.06,
-        },
-        Circle = {
-            Visible = true,
-            Color = Color3.fromRGB(246, 198, 208),
-            Transparency = 0,
-            Thickness = 2,
-            NumSides = 100,
-            Radius = 80,
-            Filled = false,
-        },
-        WallCheck = true,
-    },
-}
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+local function createCircle(radius)
+    local circle = Instance.new("Part")
+    circle.Size = Vector3.new(radius * 2, 1, radius * 2)  -- Diameter
+    circle.Position = Camera.CFrame.Position + Camera.CFrame.LookVector * 5  -- Position it in front of the camera
+    circle.Anchored = true
+    circle.CanCollide = false
+    circle.BrickColor = BrickColor.new("Bright blue")  -- Sky blue color
+    circle.Material = Enum.Material.SmoothPlastic
+    circle.Transparency = 0.2  -- Slightly transparent for visibility
+    circle.Parent = workspace
+    circle.CFrame = circle.CFrame * CFrame.Angles(math.rad(90), 0, 0)  -- Rotate to lay flat
+    return circle
+end
+
+local function isPlayerInCircle(player, center, radius)
+    local character = player.Character
+    if character then
+        local head = character:FindFirstChild("Head")
+        if head then
+            local headPosition = head.Position
+            local distance = (headPosition - center).magnitude
+            return distance <= radius
+        end
+    end
+    return false
+end
+
+local function shootAt(player)
+    -- Your shooting logic here
+    print("Shooting at", player.Name)
+end
+
+local function shootNearbyPlayers(radius)
+    local center = Camera.CFrame.Position
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and isPlayerInCircle(player, center, radius) then
+            shootAt(player)
+        end
+    end
+end
+
+-- Create a large sky blue circle with a radius of 80 units
+createCircle(80)
+
+-- Shoot at players within a radius of 80 units
+shootNearbyPlayers(80)
