@@ -1,0 +1,72 @@
+local resolverEnabled = false
+local player = game.Players.LocalPlayer
+local enemyCharacter = nil -- Reference to the enemy player
+
+-- Function to toggle the resolver
+local function toggleResolver()
+    resolverEnabled = not resolverEnabled
+    if resolverEnabled then
+        print("Resolver Enabled")
+    else
+        print("Resolver Disabled")
+    end
+end
+
+-- Function to check for anti-lock (pseudo-logic)
+local function checkForAntiLock()
+    if enemyCharacter then
+        local enemyHumanoid = enemyCharacter:FindFirstChildOfClass("Humanoid")
+        -- Implement your logic to detect anti-lock, e.g.:
+        -- if enemyHumanoid and enemyHumanoid.Health > 0 then
+        --     return true -- Replace with actual detection logic
+        -- end
+    end
+    return false
+end
+
+-- Function to redirect the screen when anti-lock is detected
+local function redirectOnAntiLock()
+    while resolverEnabled do
+        if checkForAntiLock() then
+            -- Example of redirecting the player's view
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(0, 50, 0)) -- Move player up
+            print("Redirecting due to anti-lock")
+        end
+        wait(0.1) -- Adjust the frequency of checks as needed
+    end
+end
+
+-- Create a UI Button
+local ScreenGui = Instance.new("ScreenGui")
+local ToggleButton = Instance.new("TextButton")
+
+ScreenGui.Parent = game.CoreGui
+ToggleButton.Parent = ScreenGui
+ToggleButton.Size = UDim2.new(0, 100, 0, 50)
+ToggleButton.Position = UDim2.new(0.5, -50, 0.5, -25)
+ToggleButton.Text = "Toggle Resolver"
+
+-- Connect the button to the toggle function
+ToggleButton.MouseButton1Click:Connect(function()
+    toggleResolver()
+    if resolverEnabled then
+        redirectOnAntiLock()
+    end
+end)
+
+-- Optional: Update button appearance based on resolver state
+local function updateButtonAppearance()
+    if resolverEnabled then
+        ToggleButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Green
+        ToggleButton.Text = "Disable Resolver"
+    else
+        ToggleButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Red
+        ToggleButton.Text = "Enable Resolver"
+    end
+end
+
+-- Update appearance when toggled
+ToggleButton.MouseButton1Click:Connect(updateButtonAppearance)
+
+-- Initial button appearance update
+updateButtonAppearance()
