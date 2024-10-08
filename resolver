@@ -32,15 +32,32 @@ local function redirectOnAntiLock()
     end
 end
 
--- Create a UI Button
+-- Create a UI Screen
 local ScreenGui = Instance.new("ScreenGui")
-local ToggleButton = Instance.new("TextButton")
-
+ScreenGui.Name = "ResolverGui"
 ScreenGui.Parent = game.CoreGui
-ToggleButton.Parent = ScreenGui
-ToggleButton.Size = UDim2.new(0, 120, 0, 60)  -- Increased size slightly
-ToggleButton.Position = UDim2.new(0.5, -60, 0.5, -30)  -- Adjusted position accordingly
+
+-- Create a Background Frame
+local BackgroundFrame = Instance.new("Frame")
+BackgroundFrame.Size = UDim2.new(0, 200, 0, 100)
+BackgroundFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+BackgroundFrame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1) -- Dark background
+BackgroundFrame.BorderSizePixel = 0
+BackgroundFrame.BackgroundTransparency = 0.3
+BackgroundFrame.Parent = ScreenGui
+
+-- Create a UI Button with enhanced appearance
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Parent = BackgroundFrame
+ToggleButton.Size = UDim2.new(0, 180, 0, 50)
+ToggleButton.Position = UDim2.new(0, 10, 0, 25) -- Centered in the background frame
 ToggleButton.Text = "Toggle Resolver"
+ToggleButton.BackgroundColor3 = Color3.new(0.2, 0.6, 0.8) -- Initial color
+ToggleButton.BorderSizePixel = 2
+ToggleButton.BorderColor3 = Color3.new(0.5, 0.5, 0.5) -- Grey border
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextColor3 = Color3.new(1, 1, 1) -- White text
+ToggleButton.TextScaled = true
 
 -- Button drag functionality
 local dragging = false
@@ -55,7 +72,7 @@ ToggleButton.InputBegan:Connect(function(input)
         input.Changed:Connect(function()
             if dragging then
                 local delta = input.Position - startPos
-                ToggleButton.Position = UDim2.new(startSize.X.Scale, startSize.X.Offset + delta.X, startSize.Y.Scale, startSize.Y.Offset + delta.Y)
+                BackgroundFrame.Position = UDim2.new(startSize.X.Scale, startSize.X.Offset + delta.X, startSize.Y.Scale, startSize.Y.Offset + delta.Y)
             end
         end)
     end
@@ -78,10 +95,10 @@ end)
 -- Update button appearance based on resolver state
 local function updateButtonAppearance()
     if resolverEnabled then
-        ToggleButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Green
+        ToggleButton.BackgroundColor3 = Color3.new(0.53, 0.81, 0.98) -- Sky Blue
         ToggleButton.Text = "Disable Resolver"
     else
-        ToggleButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Red
+        ToggleButton.BackgroundColor3 = Color3.new(1, 0.75, 0.8) -- Sky Pink
         ToggleButton.Text = "Enable Resolver"
     end
 end
