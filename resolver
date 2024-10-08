@@ -16,10 +16,7 @@ end
 local function checkForAntiLock()
     if enemyCharacter then
         local enemyHumanoid = enemyCharacter:FindFirstChildOfClass("Humanoid")
-        -- Implement your logic to detect anti-lock, e.g.:
-        -- if enemyHumanoid and enemyHumanoid.Health > 0 then
-        --     return true -- Replace with actual detection logic
-        -- end
+        -- Implement your logic to detect anti-lock
     end
     return false
 end
@@ -28,11 +25,10 @@ end
 local function redirectOnAntiLock()
     while resolverEnabled do
         if checkForAntiLock() then
-            -- Example of redirecting the player's view
             player.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(0, 50, 0)) -- Move player up
             print("Redirecting due to anti-lock")
         end
-        wait(0.1) -- Adjust the frequency of checks as needed
+        wait(0.1) -- Adjust frequency of checks
     end
 end
 
@@ -42,9 +38,34 @@ local ToggleButton = Instance.new("TextButton")
 
 ScreenGui.Parent = game.CoreGui
 ToggleButton.Parent = ScreenGui
-ToggleButton.Size = UDim2.new(0, 100, 0, 50)
-ToggleButton.Position = UDim2.new(0.5, -50, 0.5, -25)
+ToggleButton.Size = UDim2.new(0, 120, 0, 60)  -- Increased size slightly
+ToggleButton.Position = UDim2.new(0.5, -60, 0.5, -30)  -- Adjusted position accordingly
 ToggleButton.Text = "Toggle Resolver"
+
+-- Button drag functionality
+local dragging = false
+local dragInput, startPos, startSize
+
+ToggleButton.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        startPos = input.Position
+        startSize = ToggleButton.Position
+
+        input.Changed:Connect(function()
+            if dragging then
+                local delta = input.Position - startPos
+                ToggleButton.Position = UDim2.new(startSize.X.Scale, startSize.X.Offset + delta.X, startSize.Y.Scale, startSize.Y.Offset + delta.Y)
+            end
+        end)
+    end
+end)
+
+ToggleButton.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = false
+    end
+end)
 
 -- Connect the button to the toggle function
 ToggleButton.MouseButton1Click:Connect(function()
@@ -54,7 +75,7 @@ ToggleButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- Optional: Update button appearance based on resolver state
+-- Update button appearance based on resolver state
 local function updateButtonAppearance()
     if resolverEnabled then
         ToggleButton.BackgroundColor3 = Color3.new(0, 1, 0) -- Green
