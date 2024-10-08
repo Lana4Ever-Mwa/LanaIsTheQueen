@@ -40,7 +40,7 @@ ScreenGui.Parent = game.CoreGui
 -- Create a Background Frame
 local BackgroundFrame = Instance.new("Frame")
 BackgroundFrame.Size = UDim2.new(0, 200, 0, 100)
-BackgroundFrame.Position = UDim2.new(0.5, -100, 0.5, -50) -- Initial position (centered)
+BackgroundFrame.Position = UDim2.new(0, 10, 0, 30) -- Positioned on the left and slightly higher
 BackgroundFrame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1) -- Dark background
 BackgroundFrame.BorderSizePixel = 0
 BackgroundFrame.BackgroundTransparency = 0.3
