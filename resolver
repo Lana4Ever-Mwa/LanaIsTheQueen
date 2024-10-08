@@ -21,12 +21,14 @@ local function checkForAntiLock()
     return false
 end
 
--- Function to redirect the screen when anti-lock is detected
+-- Function to redirect the player's view to the center when anti-lock is detected
 local function redirectOnAntiLock()
     while resolverEnabled do
         if checkForAntiLock() then
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(0, 50, 0)) -- Move player up
-            print("Redirecting due to anti-lock")
+            -- Redirect view to the center
+            local camera = game.Workspace.CurrentCamera
+            camera.CFrame = CFrame.new(0, 0, 0) -- Center the camera position; adjust as needed
+            print("Redirecting to center due to anti-lock")
         end
         wait(0.1) -- Adjust frequency of checks
     end
@@ -40,7 +42,7 @@ ScreenGui.Parent = game.CoreGui
 -- Create a Background Frame
 local BackgroundFrame = Instance.new("Frame")
 BackgroundFrame.Size = UDim2.new(0, 200, 0, 100)
-BackgroundFrame.Position = UDim2.new(0, 10, 0, 126) -- Adjusted to move it lower (30 + 96 = 126)
+BackgroundFrame.Position = UDim2.new(0, 10, 0, 126) -- Adjusted position
 BackgroundFrame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1) -- Dark background
 BackgroundFrame.BorderSizePixel = 0
 BackgroundFrame.BackgroundTransparency = 0.3
