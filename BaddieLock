@@ -2,77 +2,62 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 
-local shootingEnabled = true  -- Toggle variable to enable/disable shooting
-local radius = 80  -- Set the shooting radius
+local shootingEnabled = true  -- Shooting is enabled by default
+local radius = 80  -- Radius for detecting players
 
+-- Function to create a circle UI
 local function createCircle()
-    -- Create a ScreenGui
     local screenGui = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
-
-    -- Create a Frame for the outline
     local circle = Instance.new("Frame", screenGui)
-    circle.Size = UDim2.new(0, 150, 0, 150)  -- Size of the circle (diameter 100 pixels)
-    circle.Position = UDim2.new(1, 0, 1, 0)  -- Centered circle
+    
+    circle.Size = UDim2.new(0, 150, 0, 150)  -- Size of the circle
+    circle.Position = UDim2.new(0.5, 100, 0.5, 100)  -- Centered
     circle.BackgroundTransparency = 1  -- Fully transparent background
-    circle.BorderSizePixel = 0  -- No border
+    circle.BorderSizePixel = 0
 
-    -- Create a UICorner for rounded edges
-    local uiCorner = Instance.new("UICorner", circle)
-    uiCorner.CornerRadius = UDim.new(0.5, 0)  -- Make it a circle
-
-    -- Create an outline using a UIStroke
     local uiStroke = Instance.new("UIStroke", circle)
-    uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border  -- Apply the stroke to the border
-    uiStroke.Color = Color3.fromRGB(135, 206, 250)  -- Sky blue color for the outline
+    uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    uiStroke.Color = Color3.fromRGB(135, 206, 250)  -- Sky blue color
     uiStroke.Thickness = 2  -- Thickness of the outline
 
     return circle
 end
 
+-- Function to check if a player is within the circle
 local function isPlayerInCircle(player, center, radius)
     local character = player.Character
     if character and character:FindFirstChild("HumanoidRootPart") then
-        local head = character:FindFirstChild("Head")
-        local humanoidRootPart = character.HumanoidRootPart
-        if head and humanoidRootPart then
-            local headPosition = humanoidRootPart.Position
-            local distance = (headPosition - center).magnitude
-            return distance <= radius
-        end
+        local headPosition = character.HumanoidRootPart.Position
+        local distance = (headPosition - center).magnitude
+        return distance <= radius
     end
     return false
 end
 
-local function shootAt(player)
-    -- Your shooting logic here
-    print("Guaranteed hit on", player.Name)
-end
+-- Function to shoot at nearby players
+local function shootNearbyPlayers()
+    if not shootingEnabled then return end
 
-local function shootNearbyPlayers(radius)
-    local center = LocalPlayer.Character.HumanoidRootPart.Position  -- Use player's position
-    for _, player in ipairs(Players:GetPlayers()) do
+    local center = LocalPlayer.Character.HumanoidRootPart.Position
+    for _, player in Players:GetPlayers() do
         if player ~= LocalPlayer and isPlayerInCircle(player, center, radius) then
-            shootAt(player)  -- Automatically "hit" every player in the circle
+            print("Guaranteed hit on", player.Name)  -- Replace this with your shooting logic
         end
     end
 end
 
--- Create an outline circle in the middle of the screen
+-- Create the circle
 local circle = createCircle()
 
--- Function to toggle shooting on and off
-local function toggleShooting()
-    shootingEnabled = not shootingEnabled  -- Toggle the boolean value
-    print("Shooting enabled:", shootingEnabled)
+-- Automatically shoot nearby players when the script runs
+shootNearbyPlayers()
 
-    if shootingEnabled then
-        shootNearbyPlayers(radius)  -- Shoot if enabled
-    end
-end
-
--- Connect the toggle function to touch input
+-- Connect the touch input to toggle shooting
 circle.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.Touch then
-        toggleShooting()  -- Toggle shooting on touch
+        shootingEnabled = not shootingEnabled  -- Toggle shooting
+        if shootingEnabled then
+            shootNearbyPlayers()  -- Shoot if enabled
+        end
     end
 end)
