@@ -1,7 +1,9 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
 
 local shootingEnabled = true  -- Toggle variable to enable/disable shooting
+local radius = 80  -- Set the shooting radius
 
 local function createCircle()
     -- Create a ScreenGui
@@ -9,11 +11,10 @@ local function createCircle()
 
     -- Create a Frame for the outline
     local circle = Instance.new("Frame", screenGui)
-    circle.Size = UDim2.new(0, 240, 0, 240)  -- Size of the circle (diameter 240 pixels)
-    circle.Position = UDim2.new(0.5, -120, 0.5, -120)  -- Adjusted to position the circle higher
+    circle.Size = UDim2.new(0, 100, 0, 100)  -- Size of the circle (diameter 100 pixels)
+    circle.Position = UDim2.new(0.5, 0, 0.5, 0)  -- Centered circle
     circle.BackgroundTransparency = 1  -- Fully transparent background
-    circle.BorderSizePixel = 0  -- No border initially
-    circle.ClipsDescendants = true  -- Clip anything that goes outside the frame
+    circle.BorderSizePixel = 0  -- No border
 
     -- Create a UICorner for rounded edges
     local uiCorner = Instance.new("UICorner", circle)
@@ -23,17 +24,18 @@ local function createCircle()
     local uiStroke = Instance.new("UIStroke", circle)
     uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border  -- Apply the stroke to the border
     uiStroke.Color = Color3.fromRGB(135, 206, 250)  -- Sky blue color for the outline
-    uiStroke.Thickness = 2  -- Thickness of the outline set to 2
+    uiStroke.Thickness = 2  -- Thickness of the outline
 
     return circle
 end
 
 local function isPlayerInCircle(player, center, radius)
     local character = player.Character
-    if character then
+    if character and character:FindFirstChild("HumanoidRootPart") then
         local head = character:FindFirstChild("Head")
-        if head then
-            local headPosition = head.Position
+        local humanoidRootPart = character.HumanoidRootPart
+        if head and humanoidRootPart then
+            local headPosition = humanoidRootPart.Position
             local distance = (headPosition - center).magnitude
             return distance <= radius
         end
@@ -62,31 +64,15 @@ local circle = createCircle()
 local function toggleShooting()
     shootingEnabled = not shootingEnabled  -- Toggle the boolean value
     print("Shooting enabled:", shootingEnabled)
-    
+
     if shootingEnabled then
-        shootNearbyPlayers(80)  -- Shoot if enabled
+        shootNearbyPlayers(radius)  -- Shoot if enabled
     end
 end
 
 -- Connect the toggle function to touch input
-local UserInputService = game:GetService("UserInputService")
-
--- Create a button for mobile touch input
-local touchButton = Instance.new("TextButton", circle)
-touchButton.Size = UDim2.new(1, 0, 1, 0)  -- Full size of the circle
-touchButton.BackgroundTransparency = 1  -- Make button invisible
-touchButton.Text = ""  -- No text
-
-touchButton.MouseButton1Click:Connect(function()
-    toggleShooting()  -- Toggle shooting on button press
-end)
-
--- Alternatively, for touch events, use this
-UserInputService.TouchTap:Connect(function(touch)
-    local touchPosition = touch.Position
-    -- Check if the touch is within the circle's bounds
-    if (touchPosition.X >= circle.Position.X.Offset) and (touchPosition.X <= circle.Position.X.Offset + circle.Size.X.Offset) and
-       (touchPosition.Y >= circle.Position.Y.Offset) and (touchPosition.Y <= circle.Position.Y.Offset + circle.Size.Y.Offset) then
-        toggleShooting()
+circle.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch then
+        toggleShooting()  -- Toggle shooting on touch
     end
 end)
