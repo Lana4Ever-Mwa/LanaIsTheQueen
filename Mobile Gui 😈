@@ -33,7 +33,7 @@ local LocksSection = LocksTab:CreateSection("Locks")
    Title = "You've excuted the mobile script!",
    Content = "use k tool to hide gui",
    Duration = 3,
-   Image = nil,
+   Image = 83310144482533,
    Actions = { -- Notification Buttons
       Ignore = {
          Name = "Okay!",
@@ -387,11 +387,11 @@ local Button = ExploitsTab:CreateButton({
             ['Enabled'] = true,
             ['Speed'] = 100,
             ['Distance'] = 10,
-            ['Height'] = 7,
+            ['Height'] = 8,
         },
         ['Cframe Walk'] = {
             ['Enabled'] = true,
-            ['Amount'] = 3
+            ['Amount'] = 4
         }
     }
 }
@@ -619,7 +619,7 @@ local function CreateButton(name, defaultPosition, callback)
     Button.Position = savedPositions[name] and UDim2.new(0, savedPositions[name].X, 0, savedPositions[name].Y) or defaultPosition
     Button.Text = name
     Button.Parent = ScreenGui
-    Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Button.BackgroundColor3 = Color3.fromRGB(246, 198, 208)
     Button.BorderSizePixel = 0
     Button.Font = Enum.Font.Code
     Button.TextColor3 = Color3.new(0, 0, 0)
@@ -645,7 +645,7 @@ local function CreateButton(name, defaultPosition, callback)
     local isActive = false
 
     local function updateButtonState()
-        local targetColor = isActive and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(255, 0, 0)
+        local targetColor = isActive and Color3.fromRGB(135, 206, 235) or Color3.fromRGB(246, 198, 208)
         local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local tween = game:GetService("TweenService"):Create(Shadow, tweenInfo, {BackgroundColor3 = targetColor})
         tween:Play()
