@@ -67,7 +67,7 @@ getgenv().Silent = {
     Settings = {
         Toggled = true,
         AimPart = "HumanoidRootPart", --&gt; HumanoidRootPart, UpperTorso, LowerTorso, Head &lt;-- Main Parts
-        HitChance = 999, 
+        HitChance = 1000, 
         
         Prediction = {
             Enabled = true,
@@ -942,7 +942,7 @@ getrenv().Script = {
             Enabled = true,
             TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
             AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
-            HitChance = 999, --> HitChance Percentage <--
+            HitChance = 1000, --> HitChance Percentage <--
             
             Prediction = {
                 Enabled = true,
