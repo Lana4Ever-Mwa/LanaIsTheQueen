@@ -45,17 +45,153 @@ local LocksSection = LocksTab:CreateSection("Locks")
 })
 
 local Button = LocksTab:CreateButton({
-   Name = "Vascal CamLock",
+   Name = "Xora Advanced Silent",
    Callback = function()
-   loadstring(game:HttpGet("https://scriptblox.com/raw/Stomp-Shop-Da-Strike-PSXbox-Vascal-Lock-14629"))()
-   end,
-})
+   --[[
+ .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ____  ____  | || |              | || |     ____     | || |  _______     | || |      __      | |
+| | |_  _||_  _| | || |              | || |   .'    `.   | || | |_   __ \    | || |     /  \     | |
+| |   \ \  / /   | || |              | || |  /  .--.  \  | || |   | |__) |   | || |    / /\ \    | |
+| |    > `' <    | || |              | || |  | |    | |  | || |   |  __ /    | || |   / ____ \   | |
+| |  _/ /'`\ \_  | || |              | || |  \  `--'  /  | || |  _| |  \ \_  | || | _/ /    \ \_ | |
+| | |____||____| | || |   _______    | || |   `.____.'   | || | |____| |___| | || ||____|  |____|| |
+| |              | || |  |_______|   | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+Dahood Games Silent-Aim Script:
+- Release Date: 2024/10/5
+- Last Update: 2024/10/6
+- Verison: 1.0.2
+]]--
 
-local Button = LocksTab:CreateButton({
-   Name = "Vascal Streamable",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/Sub-to-vascal/main/Vascal-Streamable"))()
-   end,
+--// Script \\--
+getrenv().Script = {
+    Settings = {
+        SilentAim = {
+            Enabled = true,
+            TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
+            AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
+            HitChance = 1000, --> HitChance Percentage <--
+            
+            Prediction = {
+                Enabled = true,
+                Method = "Multiplication", --> Multiplication, Division <--
+                
+                Multiplication = {
+                    Horizontal = 0.14185714285714, --> X and Z | Low Ping: 0.1498127340824, High Ping: 0.24660912453761 <--
+                    Vertical = 0.12042857142857, --> Y | Low Ping: 0.1249063670412, High Ping: 0.16440608302507 <--
+                },
+                
+                Division = {
+                    Horizontal = 7.15, --> X and Z | Low Ping: 6.6749999999999, High Ping: 4.055 <--
+                    Vertical = 8.15, --> Y | Low Ping: 8.0059970014992, High Ping: 6.0824999999999 <--
+                },
+            },
+            
+            Velocity = {
+                Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
+                
+                Minimum = {
+                    X = -math.huge,
+                    Y = -math.huge, --> Make This Between -1 And -2 For Anti-Ground Shots <---
+                    Z = -math.huge,
+                },
+                
+                Maximum = {
+                    X = math.huge,
+                    Y = math.huge,
+                    Z = math.huge,
+                },
+            },
+            
+            Checks = {
+                Wall = false,
+                Knocked = false,
+                Grabbed = false,
+            },
+        },
+        
+        Resolver = {
+            Enabled = false,
+            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction <--
+            
+            RecalculateVelocity = {
+                LastTick = tick(),
+                LastPosition = Vector3.new(0, 0, 0),
+                NewVelocity = Vector3.new(0, 0, 0),
+                RefreshRate = 1200,
+                
+                Smoothness = {
+                    Enabled = true,
+                    Value = 0.4,
+                },
+            },
+            
+            MoveDirection = {
+                Multiplier = 19,
+                NewVelocity = Vector3.new(0, 0, 0),
+                
+                Smoothness = {
+                    Enabled = true,
+                    Value = 0.2,
+                },
+            },
+        },
+        
+        Circle = {
+            Visible = true,
+            Transparency = 1,
+            Color = Color3.fromRGB(246, 198, 208),
+            Radius = 180,
+            Position = "Center", --> Center, Finger, Mouse <--
+            
+            Gradient = {
+                Enabled = true,
+                Rotation = 120,
+                
+                Colors = {
+                    One = Color3.fromRGB(246, 198, 208),
+                    Two = Color3.fromRGB(135, 206, 235),
+                },
+                
+                Animation = {
+                    Enabled = true,
+                    Speed = 2.5,
+                    Offset = Vector2.new(1, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                },
+            },
+            
+            Stroke = {
+                Visible = true,
+                Transparency = 0,
+                Thickness = 2.5,
+                Color = Color3.fromRGB(246, 198, 208),
+                
+                Gradient = {
+                    Enabled = true,
+                    Rotation = 120,
+                    
+                    Colors = {
+                        One = Color3.fromRGB(246, 198, 208),
+                        Two = Color3.fromRGB(135, 206, 235),
+                    },
+                    
+                    Animation = {
+                        Enabled = true,
+                        Speed = 2.5,
+                        Offset = Vector2.new(0, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                    },
+                },
+                
+            },
+        },
+    },
+}
+
+-- Advanced Silent-Aim [ NEW! ]
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20/Advanced%20Silent%20Aim.lua", true))()
+    end,
 })
 
 local Button = LocksTab:CreateButton({
@@ -89,6 +225,20 @@ getgenv().Silent = {
 
 -- Basic Silent-Aim [ DAHOOD GAMES ]
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/Scripts/Basic%20Silent-Aim", true))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Vascal Streamable",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/Sub-to-vascal/main/Vascal-Streamable"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Vascal CamLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Stomp-Shop-Da-Strike-PSXbox-Vascal-Lock-14629"))()
    end,
 })
 
@@ -137,9 +287,23 @@ local Button = RightClickandMoreTab:CreateButton({
 })
 
 local Button = RightClickandMoreTab:CreateButton({
+   Name = "K Tool Hides GUI",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/k-tool/main/k-tool", true))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
    Name = "Chat Spammer",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/IncognitoChat-Hangout-or-UNIVERSAL-V2-17194"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Chat Bypass Cruel",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
    end,
 })
 
@@ -154,6 +318,13 @@ local Button = RightClickandMoreTab:CreateButton({
    Name = "KeyBoard",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Resolver 1",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/Zolowner/ZolexResolverV1/main/subscribeToNechoscript'))()
    end,
 })
 
@@ -327,13 +498,6 @@ local Button = LocksTab:CreateButton({
    Name = "Ace CamLock",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Totocoems/Ace/main/Ace"))()
-   end,
-})
-
-local Button = RightClickandMoreTab:CreateButton({
-   Name = "K Tool Hides GUI",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/k-tool/main/k-tool", true))()
    end,
 })
 
@@ -781,6 +945,13 @@ end)
    end,
 })
 
+local Button = ExploitsTab:CreateButton({
+   Name = "Swag Mode DH",
+   Callback = function()
+   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
+   end,
+})
+
 local Button = FlyScriptsTab:CreateButton({
    Name = "Xora Flying Script",
    Callback = function()
@@ -911,162 +1082,5 @@ runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
    end
 end)
 
-   end,
-})
-
-local Button = LocksTab:CreateButton({
-   Name = "Xora Advanced Silent",
-   Callback = function()
-   --[[
- .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
-| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-| |  ____  ____  | || |              | || |     ____     | || |  _______     | || |      __      | |
-| | |_  _||_  _| | || |              | || |   .'    `.   | || | |_   __ \    | || |     /  \     | |
-| |   \ \  / /   | || |              | || |  /  .--.  \  | || |   | |__) |   | || |    / /\ \    | |
-| |    > `' <    | || |              | || |  | |    | |  | || |   |  __ /    | || |   / ____ \   | |
-| |  _/ /'`\ \_  | || |              | || |  \  `--'  /  | || |  _| |  \ \_  | || | _/ /    \ \_ | |
-| | |____||____| | || |   _______    | || |   `.____.'   | || | |____| |___| | || ||____|  |____|| |
-| |              | || |  |_______|   | || |              | || |              | || |              | |
-| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
- '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-Dahood Games Silent-Aim Script:
-- Release Date: 2024/10/5
-- Last Update: 2024/10/6
-- Verison: 1.0.2
-]]--
-
---// Script \\--
-getrenv().Script = {
-    Settings = {
-        SilentAim = {
-            Enabled = true,
-            TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
-            AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
-            HitChance = 1000, --> HitChance Percentage <--
-            
-            Prediction = {
-                Enabled = true,
-                Method = "Multiplication", --> Multiplication, Division <--
-                
-                Multiplication = {
-                    Horizontal = 0.14185714285714, --> X and Z | Low Ping: 0.1498127340824, High Ping: 0.24660912453761 <--
-                    Vertical = 0.12042857142857, --> Y | Low Ping: 0.1249063670412, High Ping: 0.16440608302507 <--
-                },
-                
-                Division = {
-                    Horizontal = 7.15, --> X and Z | Low Ping: 6.6749999999999, High Ping: 4.055 <--
-                    Vertical = 8.15, --> Y | Low Ping: 8.0059970014992, High Ping: 6.0824999999999 <--
-                },
-            },
-            
-            Velocity = {
-                Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
-                
-                Minimum = {
-                    X = -math.huge,
-                    Y = -math.huge, --> Make This Between -1 And -2 For Anti-Ground Shots <---
-                    Z = -math.huge,
-                },
-                
-                Maximum = {
-                    X = math.huge,
-                    Y = math.huge,
-                    Z = math.huge,
-                },
-            },
-            
-            Checks = {
-                Wall = false,
-                Knocked = false,
-                Grabbed = false,
-            },
-        },
-        
-        Resolver = {
-            Enabled = false,
-            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction <--
-            
-            RecalculateVelocity = {
-                LastTick = tick(),
-                LastPosition = Vector3.new(0, 0, 0),
-                NewVelocity = Vector3.new(0, 0, 0),
-                RefreshRate = 1200,
-                
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.4,
-                },
-            },
-            
-            MoveDirection = {
-                Multiplier = 19,
-                NewVelocity = Vector3.new(0, 0, 0),
-                
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.2,
-                },
-            },
-        },
-        
-        Circle = {
-            Visible = true,
-            Transparency = 1,
-            Color = Color3.fromRGB(246, 198, 208),
-            Radius = 180,
-            Position = "Center", --> Center, Finger, Mouse <--
-            
-            Gradient = {
-                Enabled = true,
-                Rotation = 120,
-                
-                Colors = {
-                    One = Color3.fromRGB(246, 198, 208),
-                    Two = Color3.fromRGB(135, 206, 235),
-                },
-                
-                Animation = {
-                    Enabled = true,
-                    Speed = 2.5,
-                    Offset = Vector2.new(1, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
-                },
-            },
-            
-            Stroke = {
-                Visible = true,
-                Transparency = 0,
-                Thickness = 2.5,
-                Color = Color3.fromRGB(246, 198, 208),
-                
-                Gradient = {
-                    Enabled = true,
-                    Rotation = 120,
-                    
-                    Colors = {
-                        One = Color3.fromRGB(246, 198, 208),
-                        Two = Color3.fromRGB(135, 206, 235),
-                    },
-                    
-                    Animation = {
-                        Enabled = true,
-                        Speed = 2.5,
-                        Offset = Vector2.new(0, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
-                    },
-                },
-                
-            },
-        },
-    },
-}
-
--- Advanced Silent-Aim [ NEW! ]
-loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20/Advanced%20Silent%20Aim.lua", true))()
-    end,
-})
-
-local Button = ExploitsTab:CreateButton({
-   Name = "Swag Mode DH",
-   Callback = function()
-   loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
    end,
 })
