@@ -30,7 +30,7 @@ getrenv().Script = {
                     Z = -math.huge,
                 },
 
-                Maximun = {
+                Maximum = {
                     X = math.huge,
                     Y = math.huge,
                     Z = math.huge,
@@ -51,7 +51,7 @@ getrenv().Script = {
             RecalculateVelocity = {
                 LastTick = tick(),
                 LastPositon = Vector3.new(0, 0, 0),
-                NewVolocity = Vector3.new(0, 0, 0),
+                NewVelocity = Vector3.new(0, 0, 0),
                 RefreshRate = 1200,
 
                 Smoothness = {
@@ -62,7 +62,7 @@ getrenv().Script = {
 
             MoveDirection = {
                 Multiplier = 19,
-                NewVolocity = Vector3.new (0, 0, 0),
+                NewVelocity = Vector3.new (0, 0, 0),
 
                 Smoothness = {
                     Enabled = true,
