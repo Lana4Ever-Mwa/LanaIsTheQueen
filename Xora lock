@@ -1,118 +1,61 @@
-getrenv().Script = {
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))() --&gt; DO NOT DELETE
+
+getgenv().Silent = {
     Settings = {
-        SilentAim = {
+        Toggled = true,
+        AimPart = "HumanoidRootPart", --&gt; HumanoidRootPart, UpperTorso, LowerTorso, Head &lt;-- Main Parts
+        HitChance = 1000, 
+        
+        Prediction = {
             Enabled = true,
-            TargetingMethod = "GetPlayerInCircle",
-            AimPart = "HumanoidRootPart",
-            HitChance = 1000,
-
-            Prediction = {
-                Enabled = true,
-                Method = "Multiplication",
-
-                Multiplication = {
-                    Horizontal = 0.14185714285714,
-                    Vertical = 0.12042857142857,
-                },
-
-                Division = {
-                    Horizontal = 7.15,
-                    Vertical = 8.15,
-                },
-            },
-
-            Velocity = {
-                Type = "Velocity",
-
-                Minimum = {
-                    X = -math.huge,
-                    Y = -math.huge,
-                    Z = -math.huge,
-                },
-
-                Maximum = {
-                    X = math.huge,
-                    Y = math.huge,
-                    Z = math.huge,
-                },
-            },
-
-            Checks = {
-                Wall = false,
-                Knocked = false,
-                Grabbed = false,
-            },
+            Horizontal = 0.12566, --&gt; X, Z
+            Vertical = 0.12566, --&gt; Y
         },
-
-        Resolver = {
-            Enabled = false,
-            Method = "Recalculate Velocity",
-
-            RecalculateVelocity = {
-                LastTick = tick(),
-                LastPositon = Vector3.new(0, 0, 0),
-                NewVelocity = Vector3.new(0, 0, 0),
-                RefreshRate = 1200,
-
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.4,
-                },
-            },
-
-            MoveDirection = {
-                Multiplier = 19,
-                NewVelocity = Vector3.new (0, 0, 0),
-
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.2,
-                },
-            },
-        },
-
+       
         Circle = {
-            Visible = true,
-            Transparency = 1,
-            Color = Color3.fromRGB(246, 198, 208),
-            Radius = 180,
-            Position = "Center",
+            Visible = false,
+            Color = Color3.fromRGB(246, 43, 188),
+            Transparency = 10,
+            Thickness = 1.5,
+            NumSides = 1000,
+            Radius = 80, --&gt; Change Circle Size Here
+            Filled = false,
 
-            Gradient = {
+                        Gradient = {
                 Enabled = true,
                 Rotation = 120,
-
+                
                 Colors = {
                     One = Color3.fromRGB(246, 198, 208),
                     Two = Color3.fromRGB(135, 206, 235),
                 },
-
+                
                 Animation = {
                     Enabled = true,
                     Speed = 2.5,
-                    Offset = Vector2.new(1, 0),
+                    Offset = Vector2.new(1, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
                 },
             },
-
+            
             Stroke = {
                 Visible = true,
                 Transparency = 0,
                 Thickness = 2.5,
                 Color = Color3.fromRGB(246, 198, 208),
-
+                
                 Gradient = {
                     Enabled = true,
                     Rotation = 120,
-
+                    
                     Colors = {
                         One = Color3.fromRGB(246, 198, 208),
                         Two = Color3.fromRGB(135, 206, 235),
                     },
-
+                    
                     Animation = {
                         Enabled = true,
                         Speed = 2.5,
-                        Offset = Vector2.new(0, 0),
+                        Offset = Vector2.new(0, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
                     },
                 },
                 
