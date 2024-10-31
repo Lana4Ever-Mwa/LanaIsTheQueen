@@ -953,6 +953,13 @@ local Button = ExploitsTab:CreateButton({
 })
 
 local Button = ExploitsTab:CreateButton({
+   Name = "BallWare (Works in some games)",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/FinallyV4"))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
    Name = "Swag Mode DH",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
