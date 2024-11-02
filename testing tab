@@ -31,7 +31,7 @@ local LocksSection = LocksTab:CreateSection("Locks")
 
     Rayfield:Notify({
    Title = "You've excuted the mobile script!",
-   Content = "use k tool to hide gui",
+   Content = "Enjoy!💋",
    Duration = 3,
    Image = 83310144482533,
    Actions = { -- Notification Buttons
@@ -1154,3 +1154,31 @@ Players.PlayerRemoving:Connect(function(plr)
 end)
    end,
 })
+
+if game.CoreGui:FindFirstChild("OpenClose") then
+   game.CoreGui:FindFirstChild("OpenClose"):Destroy()
+end
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local UIStroke = Instance.new("UIStroke")
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.08, 0, 0.06, 0)
+ImageButton1.Size = UDim2.new(0, 45, 0, 45)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://18261026237"
+ImageButton1.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,"K",false,game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,"K",false,game)
+end)
+UICorner.Parent = ImageButton1
+UIStroke.Color = Color3.fromRGB(150, 150, 150)
+UIStroke.Thickness = 1
+UIStroke.Parent = ImageButton1
+UIGradient.Parent = UIStroke
