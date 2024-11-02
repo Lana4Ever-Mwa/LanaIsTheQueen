@@ -308,9 +308,16 @@ local Button = RightClickandMoreTab:CreateButton({
 })
 
 local Button = RightClickandMoreTab:CreateButton({
-   Name = "Macro Mobile",
+   Name = "Mobile Macro #1",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/macromobbyballigusapo"))()
+   end,
+})
+
+local Button = RightClickandMoreTab:CreateButton({
+   Name = "Mpbile Macro #2",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/MacroBalli"))()
    end,
 })
 
