@@ -47,7 +47,7 @@ local ColorPicker = MainTab:CreateColorPicker({
     end
 })
 
-local LocksTab = Window:CreateTab("🔫Locks🔫", nil) -- Title, Image
+local LocksTab = Window:CreateTab("🔫Locks", nil) -- Title, Image
 local LocksSection = LocksTab:CreateSection("Locks")
 
     Rayfield:Notify({
