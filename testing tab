@@ -132,7 +132,7 @@ getrenv().Script = {
         
         --// Offsets Settings \\--
         Offsets = {
-            Enabled = true,
+            Enabled = false,
             Jumping = 0,
             Falling = 0,
         },
@@ -142,7 +142,7 @@ getrenv().Script = {
             Enabled = true,
             Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction, Move Velocity <--
             Smoothness = {
-                Enabled = true,
+                Enabled = false,
                 Value = 0.15,
             },
         },
