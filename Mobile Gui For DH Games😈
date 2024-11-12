@@ -55,105 +55,107 @@ local LocksSection = LocksTab:CreateSection("Locks")
 local Button = LocksTab:CreateButton({
    Name = "Xora Advanced Silent",
    Callback = function()
-   --[[
- .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
-| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
-| |  ____  ____  | || |              | || |     ____     | || |  _______     | || |      __      | |
-| | |_  _||_  _| | || |              | || |   .'    `.   | || | |_   __ \    | || |     /  \     | |
-| |   \ \  / /   | || |              | || |  /  .--.  \  | || |   | |__) |   | || |    / /\ \    | |
-| |    > `' <    | || |              | || |  | |    | |  | || |   |  __ /    | || |   / ____ \   | |
-| |  _/ /'`\ \_  | || |              | || |  \  `--'  /  | || |  _| |  \ \_  | || | _/ /    \ \_ | |
-| | |____||____| | || |   _______    | || |   `.____.'   | || | |____| |___| | || ||____|  |____|| |
-| |              | || |  |_______|   | || |              | || |              | || |              | |
-| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
- '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
-Dahood Games Silent-Aim Script:
-- Release Date: 2024/10/5
-- Last Update: 2024/10/6
-- Verison: 1.0.2
-]]--
-
---// Script \\--
+   --// Script Config \\--
 getrenv().Script = {
+    --// Settings \\--
     Settings = {
+        --// Silent-Aim Settings \\--
         SilentAim = {
             Enabled = true,
-            TargetingMethod = "GetPlayerInCircle", --> GetClosestPlayerInCircle, GetFurthestPlayerInCircle, GetPlayerInCircle <---
-            AimPart = "HumanoidRootPart", --> Main AimParts: (RootPart, HumanoidRootPart), Head, UpperTorso, LowerTorso, Advanced: ClosestPartInCircle <--
-            HitChance = 1000, --> HitChance Percentage <--
+            AimPart = "RootPart", --> Advanced: ClosestPart, RootPart (HumanoidRootPart) <--
+            HitChance = 100,
+            
+            Targeting = {
+                Method = "Normal", --> Normal, Closest, Furthest <--
+                Distance = {
+                    Minimum = 0,
+                    Maximum = math.huge,
+                },
+            },
             
             Prediction = {
                 Enabled = true,
                 Method = "Multiplication", --> Multiplication, Division <--
                 
                 Multiplication = {
-                    Horizontal = 0.14185714285714, --> X and Z | Low Ping: 0.1498127340824, High Ping: 0.24660912453761 <--
-                    Vertical = 0.12042857142857, --> Y | Low Ping: 0.1249063670412, High Ping: 0.16440608302507 <--
+                    Horizontal = 0.15,
+                    Vertical = 0.1,
                 },
                 
                 Division = {
-                    Horizontal = 7.15, --> X and Z | Low Ping: 6.6749999999999, High Ping: 4.055 <--
-                    Vertical = 8.15, --> Y | Low Ping: 8.0059970014992, High Ping: 6.0824999999999 <--
+                    Horizontal = 6.5,
+                    Vertical = 10,
+                },
+                
+                Automatic = {
+                    Enabled = true,
+                    Factors = {
+                        Add = 0.1,
+                        Multiply = 0.1,
+                        Division = {
+                            Horizontal = 200,
+                            Vertical = 400,
+                        },
+                    },
                 },
             },
             
-            Velocity = {
-                Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
-                
-                Minimum = {
-                    X = -math.huge,
-                    Y = -math.huge, --> Make This Between -1 And -2 For Anti-Ground Shots <---
-                    Z = -math.huge,
-                },
-                
-                Maximum = {
-                    X = math.huge,
-                    Y = math.huge,
-                    Z = math.huge,
-                },
+        },
+        
+        --// Checks Settings \\--
+        Checks = {
+            Wall = true,
+            Knocked = true,
+            Death = true,
+            Grabbed = false,
+            Friend = false,
+            Crew = false,
+            ForceField = true,
+        },
+        
+        --// Velocity Settings \\--
+        Velocity = {
+            Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
+            
+            Minimum = {
+                X = -math.huge,
+                Y = -math.huge,
+                Z = -math.huge,
             },
             
-            Checks = {
-                Wall = false,
-                Knocked = false,
-                Grabbed = false,
+            Maximum = {
+                X = math.huge,
+                Y = math.huge,
+                Z = math.huge,
             },
         },
         
+        --// Offsets Settings \\--
+        Offsets = {
+            Enabled = true,
+            Jumping = 0,
+            Falling = 0,
+        },
+        
+        --// Resolver Settings \\--
         Resolver = {
-            Enabled = false,
-            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction <--
-            
-            RecalculateVelocity = {
-                LastTick = tick(),
-                LastPosition = Vector3.new(0, 0, 0),
-                NewVelocity = Vector3.new(0, 0, 0),
-                RefreshRate = 1200,
-                
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.4,
-                },
-            },
-            
-            MoveDirection = {
-                Multiplier = 19,
-                NewVelocity = Vector3.new(0, 0, 0),
-                
-                Smoothness = {
-                    Enabled = true,
-                    Value = 0.2,
-                },
+            Enabled = true,
+            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction, Move Velocity <--
+            Smoothness = {
+                Enabled = true,
+                Value = 0.15,
             },
         },
         
+        --// Circle Settings \\--
         Circle = {
             Visible = true,
             Transparency = 1,
             Color = Color3.fromRGB(246, 198, 208),
             Radius = 180,
-            Position = "Center", --> Center, Finger, Mouse <--
+            Position = "Crosshair", --> Crosshair, Center, Finger, Mouse <--
             
+            --// Circle Gradient Settings \\--
             Gradient = {
                 Enabled = true,
                 Rotation = 120,
@@ -163,19 +165,22 @@ getrenv().Script = {
                     Two = Color3.fromRGB(135, 206, 235),
                 },
                 
+                --// Circle Gradient Animation Settings \\--
                 Animation = {
                     Enabled = true,
-                    Speed = 2.5,
-                    Offset = Vector2.new(1, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                    Speed = 3,
+                    Offset = Vector2.new(0, 0),
                 },
             },
             
+            --// Circle Stroke Settings \\--
             Stroke = {
                 Visible = true,
                 Transparency = 0,
                 Thickness = 2.5,
                 Color = Color3.fromRGB(246, 198, 208),
                 
+                --// Circle Stroke Gradient Settings \\--
                 Gradient = {
                     Enabled = true,
                     Rotation = 120,
@@ -185,10 +190,11 @@ getrenv().Script = {
                         Two = Color3.fromRGB(135, 206, 235),
                     },
                     
+                    --// Circle Stroke Gradient Animation Settings \\--
                     Animation = {
                         Enabled = true,
-                        Speed = 2.5,
-                        Offset = Vector2.new(0, 0), --> DO NOT MAKE THE X NOR THE T AXES OVER 1, I DONT RECOMMEND <--
+                        Speed = 3,
+                        Offset = Vector2.new(0, 0),
                     },
                 },
                 
@@ -197,9 +203,9 @@ getrenv().Script = {
     },
 }
 
--- Advanced Silent-Aim [ NEW! ]
-loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20/Advanced%20Silent%20Aim.lua", true))()
-    end,
+-- Dahood Silent-Aim [NEW]
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Dahood%20Silent-Aim.lua", true))()
+   end,
 })
 
 local Button = LocksTab:CreateButton({
