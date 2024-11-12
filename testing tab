@@ -37,8 +37,8 @@ Window.ModifyTheme('Bloom')
 local MainTab = Window:CreateTab("Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning", Content = "Some scripts may cause a permanent ban on some Da Hood games...SO BEWARE"})
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts", Content = "Test thw scripts out and find the one you feel most comfortable with, most recommended script is Xora Advanced Silent and Elysian Exploits. You can combine scripts to make them more better!"})
+local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE"})
+local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent and Elysian Exploits. You can combine scripts to make them more better!"})
 
 local LocksTab = Window:CreateTab("🔫Locks🔫", nil) -- Title, Image
 local LocksSection = LocksTab:CreateSection("Locks")
