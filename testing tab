@@ -6,7 +6,7 @@ local Window = Rayfield:CreateWindow({
    LoadingSubtitle = "By JJ",
    Theme = "Bloom", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
-   DisableRayfieldPrompts = false,
+   DisableRayfieldPrompts = true,
    DisableBuildWarnings = true, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
    ConfigurationSaving = {
@@ -38,8 +38,8 @@ Window.ModifyTheme('Bloom')
 local MainTab = Window:CreateTab("Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE"})
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent and Elysian Exploits. You can combine scripts to make them more better!"})
+local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE!"})
+local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent Aim and Elysian Exploits. You can combine scripts to make them more better!"})
 local Paragraph = MainTab:CreateParagraph({Title = "Note:", Content = "Walkspeed may not work in certain games...some lock scripts also may not work due to the games AntiCheat."})
 
 local Slider = MainTab:CreateSlider({
@@ -54,6 +54,17 @@ local Slider = MainTab:CreateSlider({
         if player and player.Character and player.Character:FindFirstChild("Humanoid") then
             player.Character.Humanoid.WalkSpeed = (Value)  -- Set the walk speed to the slider value
         end
+   end,
+})
+
+   local Dropdown = MainTab:CreateDropdown({
+   Name = "Themes",
+   Options = {"Bloom","Serenity","Amethyst","Ocean","AmberGlow","DarkBlue","Green","Light","Default"},
+   CurrentOption = {"Bloom"},
+   MultipleOptions = false,
+   Flag = "Dropdown1",
+   Callback = function(Options)
+   Window.ModifyTheme(Options[1])
    end,
 })
 
@@ -76,7 +87,7 @@ local LocksSection = LocksTab:CreateSection("Locks")
 })
 
 local Button = LocksTab:CreateButton({
-   Name = "Xora Advanced Silent",
+   Name = "Xora Advanced Silent Aim",
    Callback = function()
    --// Script Config \\--
 getrenv().Script = {
