@@ -188,7 +188,7 @@ getrenv().Script = {
             Transparency = 1,
             Color = Color3.fromRGB(246, 198, 208),
             Radius = 180,
-            Position = "Crosshair", --> Crosshair, Center, Finger, Mouse <--
+            Position = "Center", --> Crosshair, Center, Finger, Mouse <--
             
             --// Circle Gradient Settings \\--
             Gradient = {
