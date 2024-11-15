@@ -94,26 +94,28 @@ local Button = LocksTab:CreateButton({
 getrenv().Script = {
     --// Settings \\--
     Settings = {
-        --// Silent-Aim Settings \\--
+        --// Silent-Aim - Settings \\--
         SilentAim = {
             Enabled = true,
-            AimPart = "RootPart", --> Advanced: ClosestPart, RootPart (HumanoidRootPart) <--
+            AimPart = "UpperTorso", --// Advanced: ClosestPart, RootPart (HumanoidRootPart) \\--
             HitChance = 100,
+            Method = "Remote Hook", --// Remote Hook, Mouse Hook, Remote Fire \\--
             
+            --// 
             Targeting = {
-                Method = "Normal", --> Normal, Closest, Furthest <--
+                Method = "Normal", --// Normal, Closest, Furthest \\--
                 Distance = {
                     Minimum = 0,
-                    Maximum = math.huge,
+                    Maximum = 500,
                 },
             },
             
             Prediction = {
                 Enabled = true,
-                Method = "Multiplication", --> Multiplication, Division <--
+                Method = "Multiplication", --// Multiplication, Division \\--
                 
                 Multiplication = {
-                    Horizontal = 0.15,
+                    Horizontal = 0.16,
                     Vertical = 0.1,
                 },
                 
@@ -124,71 +126,82 @@ getrenv().Script = {
                 
                 Automatic = {
                     Enabled = true,
-                    Factors = {
+                    
+                    Horizontal = {
                         Add = 0.1,
                         Multiply = 0.1,
-                        Division = {
-                            Horizontal = 200,
-                            Vertical = 400,
-                        },
+                        Divide = 160,
+                    },
+                    
+                    Vertical = {
+                        Add = 0.1,
+                        Multiply = 0.08,
+                        Divide = 320,
                     },
                 },
+                
             },
             
         },
         
-        --// Checks Settings \\--
+        --// Triggerbot - Settings \\--
+        Triggerbot = {
+            Enabled = true,
+            ActivationDelay = 0.3,
+        },
+        
+        --// Checks - Settings \\--
         Checks = {
-            Wall = true,
+            Wall = false,
             Knocked = true,
             Death = true,
             Grabbed = false,
-            Friend = false,
+            Friend = true,
             Crew = false,
             ForceField = true,
         },
         
-        --// Velocity Settings \\--
+        --// Velocity - Settings \\--
         Velocity = {
-            Type = "Velocity", --> Velocity, AssemblyLinearVelocity <--
+            Type = "AssemblyLinearVelocity", --// Velocity, AssemblyLinearVelocity \\--
             
             Minimum = {
                 X = -math.huge,
-                Y = -math.huge,
+                Y = -1.5,
                 Z = -math.huge,
             },
             
             Maximum = {
                 X = math.huge,
-                Y = math.huge,
+                Y = 3,
                 Z = math.huge,
             },
         },
         
         --// Offsets Settings \\--
         Offsets = {
-            Enabled = false,
-            Jumping = 0,
-            Falling = 0,
+            Enabled = true,
+            Jumping = -0.095,
+            Falling = -0.35,
         },
         
-        --// Resolver Settings \\--
+        --// Resolver - Settings \\--
         Resolver = {
             Enabled = true,
-            Method = "Recalculate Velocity", --> Recalculate Velocity, Move Direction, Move Velocity <--
+            Method = "Recalculate Velocity", --// Recalculate Velocity, Move Direction, Move Velocity \\--
             Smoothness = {
                 Enabled = false,
                 Value = 0.15,
             },
         },
         
-        --// Circle Settings \\--
+        --// Circle - Settings \\--
         Circle = {
             Visible = true,
             Transparency = 1,
             Color = Color3.fromRGB(246, 198, 208),
             Radius = 180,
-            Position = "Center", --> Crosshair, Center, Finger, Mouse <--
+            Position = "Center", --// Crosshair, Center, Finger, Mouse \\--
             
             --// Circle Gradient Settings \\--
             Gradient = {
@@ -218,7 +231,7 @@ getrenv().Script = {
                 --// Circle Stroke Gradient Settings \\--
                 Gradient = {
                     Enabled = true,
-                    Rotation = 120,
+                    Rotation = 0,
                     
                     Colors = {
                         One = Color3.fromRGB(246, 198, 208),
@@ -606,7 +619,7 @@ local Button = ExploitsTab:CreateButton({
         ['Target Strafe'] = {
             ['Enabled'] = true,
             ['Speed'] = 100,
-            ['Distance'] = 10,
+            ['Distance'] = 8,
             ['Height'] = 8,
         },
         ['Cframe Walk'] = {
@@ -1025,8 +1038,8 @@ local Button = ExploitsTab:CreateButton({
 local Button = FlyScriptsTab:CreateButton({
    Name = "Xora Flying Script",
    Callback = function()
-   -- Mobile Fly [ NEW! ]
-loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Mobile%20Fly.lua", true))()
+   -- Fly [ NEW! ]
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Fly.lua", true))()
    end,
 })
 
