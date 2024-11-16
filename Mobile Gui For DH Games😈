@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "Gui For Mobile Players",
-   LoadingTitle = "Baddie Hub For Mobile",
+   LoadingTitle = "Mobile Supported",
    LoadingSubtitle = "By JJ",
    Theme = "Bloom", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
@@ -10,7 +10,7 @@ local Window = Rayfield:CreateWindow({
    DisableBuildWarnings = true, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
    ConfigurationSaving = {
-      Enabled = false,
+      Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "Mobile Hub"
    },
@@ -42,21 +42,6 @@ local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content =
 local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent Aim and Elysian Exploits. You can combine scripts to make them more better!"})
 local Paragraph = MainTab:CreateParagraph({Title = "Note:", Content = "Walkspeed may not work in certain games...some lock scripts also may not work due to the games AntiCheat."})
 local Divider = MainTab:CreateDivider()
-
-local Slider = MainTab:CreateSlider({
-   Name = "WalkSpeed",
-   Range = {16, 150},
-   Increment = 1,
-   Suffix = "Speed",
-   CurrentValue = 16,
-   Flag = "WalkSpeedSlider", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   local player = game.Players.LocalPlayer
-        if player and player.Character and player.Character:FindFirstChild("Humanoid") then
-            player.Character.Humanoid.WalkSpeed = (Value)  -- Set the walk speed to the slider value
-        end
-   end,
-})
 
    local Dropdown = MainTab:CreateDropdown({
    Name = "Themes",
