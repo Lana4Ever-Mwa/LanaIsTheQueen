@@ -54,14 +54,14 @@ local Divider = MainTab:CreateDivider()
 
 local Divider = MainTab:CreateDivider()
 
-local LocksTab = Window:CreateTab("🔫Locks🔫", nil) -- Title, Image
+local LocksTab = Window:CreateTab("Locks", "lock-keyhole")
 local LocksSection = LocksTab:CreateSection("Locks")
 
     Rayfield:Notify({
    Title = "You've excuted the mobile script!",
-   Content = "Enjoy!💋",
+   Content = "Enjoy!😜",
    Duration = 3,
-   Image = 83310144482533,
+   Image = 18803133945,
    Actions = { -- Notification Buttons
       Ignore = {
          Name = "Okay!",
@@ -303,8 +303,8 @@ local Button = LocksTab:CreateButton({
    end,
 })
 
-local AntiLockTab = Window:CreateTab("🚫AntiLock🚫", nil) -- Title, Image
-local AntiLockSection = AntiLockTab:CreateSection("AntiLocks")
+local AntiLockTab = Window:CreateTab("AntiLock", "shield-alert")
+local Section = AntiLockTab:CreateSection("AntiLocks")
 
 local Button = AntiLockTab:CreateButton({
    Name = "KirbsWare AntiLock",
@@ -320,7 +320,7 @@ local Button = AntiLockTab:CreateButton({
    end,
 })
 
-local FlyScriptsTab = Window:CreateTab("✈FlyScripts✈", nil) -- Title, Image
+local FlyScriptsTab = Window:CreateTab("FlyScripts", "plane")
 local Section = FlyScriptsTab:CreateSection("FlyScripts")
 
 local Button = FlyScriptsTab:CreateButton({
@@ -345,59 +345,59 @@ loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/re
    end,
 })
 
-local UsefulTab = Window:CreateTab("❓Useful❓", nil) -- Title, Image
-local Section = UsefulTab:CreateSection("Useful Things")
+local UseFulTab = Window:CreateTab("UseFul", "infinity")
+local Section = UseFulTab:CreateSection("UseFul Things")
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "RightClick",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/RightClick"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Chat Spammer",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/IncognitoChat-Hangout-or-UNIVERSAL-V2-17194"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Chat Bypass",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Mobile Macro #1",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/macromobbyballigusapo"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Mobile Macro #2",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/MacroBalli"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "KeyBoard",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Resolver 1",
    Callback = function()
    loadstring(game:HttpGet('https://raw.githubusercontent.com/Zolowner/ZolexResolverV1/main/subscribeToNechoscript'))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "ResolverLagsInSomeGames",
    Callback = function()
    local Players = game:GetService("Players")
@@ -535,21 +535,21 @@ end)
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "FpsBoostandLagReducer",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FpsBoost-9260"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "FpsBoostandLagReducer2",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-FPS-BOOST-2022-3864"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Azure ESP",
    Callback = function()
    -- esp.lua
@@ -920,14 +920,14 @@ return ESP_SETTINGS
 })
 
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "ESP 1",
    Callback = function()
    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Esp-open-source-15582"))()
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "Box ESP",
    Callback = function()
    --// Universal Box ESP (Works on Arsenal and other games)
@@ -1039,7 +1039,7 @@ end)
    end,
 })
 
-local Button = UsefulTab:CreateButton({
+local Button = UseFulTab:CreateButton({
    Name = "esp highlight",
    Callback = function()
    local FillColor = Color3.fromRGB(180,220,255)
@@ -1094,7 +1094,7 @@ end)
    end,
 })
 
-local ExploitsTab = Window:CreateTab("😈Exploits😈", nil) -- Title, Image
+local ExploitsTab = Window:CreateTab("Exploits", "crown")
 local Section = ExploitsTab:CreateSection("Exploits")
 
 local Button = ExploitsTab:CreateButton({
