@@ -289,8 +289,22 @@ local Button = LocksTab:CreateButton({
    end,
 })
 
+local Button = LocksTab:CreateButton({
+   Name = "BaldsLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/sdfesdfsedf/srgtergasdfs/main/wwwwwww", true))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Ace CamLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Totocoems/Ace/main/Ace"))()
+   end,
+})
+
 local AntiLockTab = Window:CreateTab("🚫AntiLock🚫", nil) -- Title, Image
-local Section = AntiLockTab:CreateSection("AntiLocks")
+local AntiLockSection = AntiLockTab:CreateSection("AntiLocks")
 
 local Button = AntiLockTab:CreateButton({
    Name = "KirbsWare AntiLock",
@@ -320,6 +334,14 @@ local Button = FlyScriptsTab:CreateButton({
    Name = "Flying Script",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Fly-script-v3-16742"))()
+   end,
+})
+
+local Button = FlyScriptsTab:CreateButton({
+   Name = "Xora Flying Script",
+   Callback = function()
+   -- Fly [ NEW! ]
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Fly.lua", true))()
    end,
 })
 
@@ -1072,48 +1094,6 @@ end)
    end,
 })
 
-if game.CoreGui:FindFirstChild("OpenClose") then
-   game.CoreGui:FindFirstChild("OpenClose"):Destroy()
-end
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-local UIGradient = Instance.new("UIGradient")
-local UIStroke = Instance.new("UIStroke")
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.08, 0, 0.06, 0)
-ImageButton1.Size = UDim2.new(0, 45, 0, 45)
-ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://18261026237"
-ImageButton1.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,"K",false,game)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false,"K",false,game)
-end)
-UICorner.Parent = ImageButton1
-UIStroke.Color = Color3.fromRGB(150, 150, 150)
-UIStroke.Thickness = 1
-UIStroke.Parent = ImageButton1
-UIGradient.Parent = UIStroke
-
-local Button = LocksTab:CreateButton({
-   Name = "BaldsLock",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/sdfesdfsedf/srgtergasdfs/main/wwwwwww", true))()
-   end,
-})
-
-local Button = LocksTab:CreateButton({
-   Name = "Ace CamLock",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Totocoems/Ace/main/Ace"))()
-   end,
-})
-
 local ExploitsTab = Window:CreateTab("😈Exploits😈", nil) -- Title, Image
 local Section = ExploitsTab:CreateSection("Exploits")
 
@@ -1576,14 +1556,6 @@ local Button = ExploitsTab:CreateButton({
    Name = "Swag Mode DH",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-swag-mode-reborn-6870"))()
-   end,
-})
-
-local Button = FlyScriptsTab:CreateButton({
-   Name = "Xora Flying Script",
-   Callback = function()
-   -- Fly [ NEW! ]
-loadstring(Game:HttpGet("https://raw.githubusercontent.com/TheRealXORA/Roblox/refs/heads/Main/Scripts%20/Universal%20/Fly.lua", true))()
    end,
 })
 
