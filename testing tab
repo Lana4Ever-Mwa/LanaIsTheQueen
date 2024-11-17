@@ -33,7 +33,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainTab = Window:CreateTab("Main", "sparkles")
 local MainSection = MainTab:CreateSection("Main")
 
 local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE!"})
