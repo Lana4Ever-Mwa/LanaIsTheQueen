@@ -61,7 +61,7 @@ local LocksSection = LocksTab:CreateSection("Locks")
    Title = "You've excuted the mobile script!",
    Content = "Enjoy!😜",
    Duration = 3,
-   Image = 18803133945,
+   Image = 18891983648,
    Actions = { -- Notification Buttons
       Ignore = {
          Name = "Okay!",
@@ -82,7 +82,7 @@ getrenv().Script = {
         --// Silent-Aim - Settings \\--
         SilentAim = {
             Enabled = true,
-            AimPart = "UpperTorso", --// Advanced: ClosestPart, RootPart (HumanoidRootPart) \\--
+            AimPart = "RootPart", --// Advanced: ClosestPart, RootPart (HumanoidRootPart) \\--
             HitChance = 100,
             Method = "Remote Hook", --// Remote Hook, Mouse Hook, Remote Fire \\--
             
@@ -91,7 +91,7 @@ getrenv().Script = {
                 Method = "Normal", --// Normal, Closest, Furthest \\--
                 Distance = {
                     Minimum = 0,
-                    Maximum = 500,
+                    Maximum = math.huge,
                 },
             },
             
@@ -120,7 +120,7 @@ getrenv().Script = {
                     
                     Vertical = {
                         Add = 0.1,
-                        Multiply = 0.08,
+                        Multiply = 0.1,
                         Divide = 320,
                     },
                 },
@@ -131,8 +131,8 @@ getrenv().Script = {
         
         --// Triggerbot - Settings \\--
         Triggerbot = {
-            Enabled = true,
-            ActivationDelay = 0.3,
+            Enabled = false,
+            ActivationDelay = 0.25,
         },
         
         --// Checks - Settings \\--
@@ -148,26 +148,26 @@ getrenv().Script = {
         
         --// Velocity - Settings \\--
         Velocity = {
-            Type = "AssemblyLinearVelocity", --// Velocity, AssemblyLinearVelocity \\--
+            Type = "Velocity", --// Velocity, AssemblyLinearVelocity \\--
             
             Minimum = {
                 X = -math.huge,
-                Y = -1.5,
+                Y = -math.huge,
                 Z = -math.huge,
             },
             
             Maximum = {
                 X = math.huge,
-                Y = 3,
+                Y = math.huge,
                 Z = math.huge,
             },
         },
         
         --// Offsets Settings \\--
         Offsets = {
-            Enabled = true,
-            Jumping = -0.095,
-            Falling = -0.35,
+            Enabled = false,
+            Jumping = 0,
+            Falling = 0,
         },
         
         --// Resolver - Settings \\--
@@ -184,8 +184,8 @@ getrenv().Script = {
         Circle = {
             Visible = true,
             Transparency = 1,
-            Color = Color3.fromRGB(246, 198, 208),
-            Radius = 180,
+            Color = Color3.fromRGB(255, 255, 255),
+            Radius = 190,
             Position = "Center", --// Crosshair, Center, Finger, Mouse \\--
             
             --// Circle Gradient Settings \\--
@@ -200,8 +200,8 @@ getrenv().Script = {
                 
                 --// Circle Gradient Animation Settings \\--
                 Animation = {
-                    Enabled = true,
-                    Speed = 3,
+                    Enabled = false,
+                    Speed = 1,
                     Offset = Vector2.new(0, 0),
                 },
             },
@@ -216,7 +216,7 @@ getrenv().Script = {
                 --// Circle Stroke Gradient Settings \\--
                 Gradient = {
                     Enabled = true,
-                    Rotation = 0,
+                    Rotation = 120,
                     
                     Colors = {
                         One = Color3.fromRGB(246, 198, 208),
@@ -595,7 +595,7 @@ local ESP_SETTINGS = {
     WallCheck = false,
     Enabled = true,
     ShowFilledBox = false,
-    ShowBox = true,
+    ShowBox = false,
     BoxType = "Normal",
     ShowName = true,
     ShowHealth = false,
