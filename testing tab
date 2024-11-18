@@ -184,7 +184,7 @@ getrenv().Script = {
         Circle = {
             Visible = true,
             Transparency = 1,
-            Color = Color3.fromRGB(255, 255, 255),
+            Color = Color3.fromRGB(246, 198, 208),
             Radius = 190,
             Position = "Center", --// Crosshair, Center, Finger, Mouse \\--
             
@@ -300,6 +300,13 @@ local Button = LocksTab:CreateButton({
    Name = "Ace CamLock",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Totocoems/Ace/main/Ace"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
+   Name = "Carlcc CamLock",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/28asjdjasdkj/adsadasdw234dasd/refs/heads/main/GODISGREAT"))()
    end,
 })
 
