@@ -58,18 +58,10 @@ local LocksTab = Window:CreateTab("Locks", "lock-keyhole")
 local LocksSection = LocksTab:CreateSection("Locks")
 
     Rayfield:Notify({
-   Title = "You've excuted the mobile script!",
-   Content = "Enjoy!😜",
+   Title = "You've exucuted the GUI!",
+   Content = "Enjoy!",
    Duration = 3,
-   Image = 18891983648,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
+   Image = "heart",
 })
 
 local Button = LocksTab:CreateButton({
