@@ -135,7 +135,7 @@ getrenv().Script = {
             Grabbed = false,
             Friend = true,
             Crew = false,
-            ForceField = true,
+            ForceField = false,
         },
         
         --// Velocity - Settings \\--
@@ -177,7 +177,7 @@ getrenv().Script = {
             Visible = true,
             Transparency = 1,
             Color = Color3.fromRGB(246, 198, 208),
-            Radius = 190,
+            Radius = 180,
             Position = "Center", --// Crosshair, Center, Finger, Mouse \\--
             
             --// Circle Gradient Settings \\--
@@ -192,8 +192,8 @@ getrenv().Script = {
                 
                 --// Circle Gradient Animation Settings \\--
                 Animation = {
-                    Enabled = false,
-                    Speed = 1,
+                    Enabled = true,
+                    Speed = 3,
                     Offset = Vector2.new(0, 0),
                 },
             },
