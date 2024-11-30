@@ -41,6 +41,44 @@ local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test t
 local Paragraph = MainTab:CreateParagraph({Title = "Note:", Content = "Some lock scripts also may not work due to the games AntiCheat. If so use Xoras Bypassed Silent Aim or Xoras Advanced Silent Aim."})
 local Divider = MainTab:CreateDivider()
 
+local Lighting = game:GetService("Lighting")
+local Toggle = false  -- Set to false for night initially, true for day.
+
+-- Function to switch between day and evening
+local function toggleDayNight()
+    if Toggle then
+        -- Set to day: Bright lighting with no fog
+        Lighting.Ambient = Color3.fromRGB(255, 255, 255)  -- Full white light for the day
+        Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)  -- Full outdoor light for daytime
+        Lighting.TimeOfDay = "14:00:00"  -- Midday
+        Lighting.FogEnd = 999999  -- No fog
+        Lighting.Brightness = 2  -- Daytime brightness
+        Lighting.Sky.Skybox = nil  -- Reset skybox to default or clear
+    else
+        -- Set to evening (6:30 PM)
+        Lighting.Ambient = Color3.fromRGB(210, 140, 90)  -- Soft golden ambient light for evening
+        Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)  -- Keep outdoor ambient light unchanged (no effect on floors/walls)
+        Lighting.TimeOfDay = "18:30:00"  -- 6:30 PM
+        Lighting.FogEnd = 999999  -- No fog
+        Lighting.Brightness = 1.5  -- Slightly lower brightness for evening light
+        
+        -- Change the sky color to reflect an evening look (soft blue/orange)
+        Lighting.Sky.Skybox = "rbxassetid://1234567890"  -- Replace with a soft evening skybox or set the colors here
+    end
+end
+
+-- Button to toggle Day/Night
+local DayNightButton = MainTab:CreateButton({
+    Name = "Day/Night",
+    Callback = function()
+        -- Toggle between day and night
+        Toggle = not Toggle
+        toggleDayNight()
+    end
+})
+
+local Divider = MainTab:CreateDivider()
+
    local Dropdown = MainTab:CreateDropdown({
    Name = "Themes",
    Options = {"Bloom","Serenity","Amethyst","Ocean","AmberGlow","DarkBlue","Green","Light","Default"},
@@ -53,6 +91,155 @@ local Divider = MainTab:CreateDivider()
 })
 
 local Divider = MainTab:CreateDivider()
+
+local targetPlayer = nil -- Holds the target player object
+local targetDisplayName = "" -- Holds the target's display name
+local actions = {followDance = false} -- Action state
+
+-- Troll Tab
+local TrollTab = Window:CreateTab("Troll", "joystick") -- Icon set to "joystick"
+local TrollSection = TrollTab:CreateSection("Troll")
+
+-- Input for Target Display Name
+TrollTab:CreateInput({
+    Name = "Enter Target Display Name",
+    PlaceholderText = "Type display name here",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(input)
+        local players = game:GetService("Players")
+        targetDisplayName = input
+        targetPlayer = nil -- Reset target player
+        
+        -- Search for player by display name
+        for _, player in ipairs(players:GetPlayers()) do
+            if player.DisplayName:lower() == input:lower() then
+                targetPlayer = player
+                break
+            end
+        end
+
+        if targetPlayer then
+            Rayfield:Notify({
+                Title = "Target Found",
+                Content = "Player '" .. targetPlayer.Name .. "' (Display: " .. targetPlayer.DisplayName .. ") is selected.",
+                Duration = 5,
+                Image = "joystick",
+            })
+        else
+            Rayfield:Notify({
+                Title = "Target Not Found",
+                Content = "No player with the display name '" .. input .. "' was found.",
+                Duration = 5,
+                Image = "joystick",
+            })
+        end
+    end,
+})
+
+-- Toggle: Follow and Dance
+TrollTab:CreateToggle({
+    Name = "Follow and Dance",
+    CurrentValue = false,
+    Flag = "FollowDanceToggle", -- Optional, used for saving state
+    Callback = function(state)
+        if not targetPlayer then
+            Rayfield:Notify({
+                Title = "No Target Set",
+                Content = "Please select a target by entering a valid display name.",
+                Duration = 3.5,
+                Image = "joystick",
+            })
+            return
+        end
+
+        actions.followDance = state
+        if state then
+            Rayfield:Notify({
+                Title = "Follow and Dance Enabled",
+                Content = "Your avatar will now follow and dance in front of: " .. targetPlayer.DisplayName,
+                Duration = 5,
+                Image = "joystick",
+            })
+
+            -- Start the follow-and-dance action
+            spawn(function()
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoid = character:FindFirstChildOfClass("Humanoid")
+                local targetCharacter = targetPlayer.Character
+                
+                -- Ensure character and humanoid exist
+                if not character or not humanoid then
+                    Rayfield:Notify({
+                        Title = "Error",
+                        Content = "Your character is not loaded or lacks a humanoid.",
+                        Duration = 5,
+                        Image = "joystick",
+                    })
+                    return
+                end
+
+                -- Prepare the dance animation
+                local animation = Instance.new("Animation")
+                animation.AnimationId = "rbxassetid://4689362868"
+                local danceTrack = humanoid:LoadAnimation(animation)
+                danceTrack.Name = "DanceTrack"
+                danceTrack.Looped = true
+                
+                -- Loop to follow the target
+                while actions.followDance and targetCharacter and humanoid do
+                    local targetRoot = targetCharacter:FindFirstChild("HumanoidRootPart")
+                    local playerRoot = character:FindFirstChild("HumanoidRootPart")
+
+                    if targetRoot and playerRoot then
+                        -- Set the follow distance to exactly 1 unit ahead of the target
+                        local followDistance = 1
+                        -- Position in front of the target and rotate to face away
+                        local followPosition = targetRoot.Position + targetRoot.CFrame.LookVector * followDistance
+                        
+                        -- Calculate the back-facing CFrame (facing opposite direction)
+                        local backFacingCFrame = CFrame.new(followPosition, targetRoot.Position) * CFrame.Angles(0, math.pi, 0)
+                        
+                        -- Teleport first (instant position change)
+                        playerRoot.CFrame = backFacingCFrame
+                        
+                        -- Restart the dance animation every iteration to ensure it plays
+                        if not danceTrack.IsPlaying then
+                            danceTrack:Play() -- Start or restart the animation
+                        end
+                    else
+                        -- Notify if parts are missing
+                        Rayfield:Notify({
+                            Title = "Error",
+                            Content = "Target or player HumanoidRootPart not found.",
+                            Duration = 5,
+                            Image = "joystick",
+                        })
+                        break
+                    end
+                    task.wait(0.05) -- Reduce delay to near-instant reaction
+                end
+
+                -- Stop the animation if the toggle is turned off
+                if humanoid then
+                    for _, track in ipairs(humanoid:GetPlayingAnimationTracks()) do
+                        if track.Name == "DanceTrack" then
+                            track:Stop()
+                            track:Destroy()
+                        end
+                    end
+                end
+            end)
+        else
+            Rayfield:Notify({
+                Title = "Follow and Dance Disabled",
+                Content = "Your avatar has stopped following and dancing in front of: " .. targetPlayer.DisplayName,
+                Duration = 5,
+                Image = "joystick",
+            })
+        end
+    end,
+})
 
 local LocksTab = Window:CreateTab("Locks", "lock-keyhole")
 local LocksSection = LocksTab:CreateSection("Locks")
