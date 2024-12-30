@@ -174,7 +174,7 @@ getrenv().Script = {
         
         --// Circle - Settings \\--
         Circle = {
-            Visible = true,
+            Visible = false,
             Transparency = 1,
             Color = Color3.fromRGB(246, 198, 208),
             Radius = 180,
@@ -256,7 +256,7 @@ getgenv().Silent = {
             Transparency = 10,
             Thickness = 1.5,
             NumSides = 1000,
-            Radius = 80, --&gt; Change Circle Size Here
+            Radius = 130, --&gt; Change Circle Size Here
             Filled = false,
         },
     },
