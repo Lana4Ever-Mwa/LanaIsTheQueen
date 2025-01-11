@@ -182,8 +182,8 @@ getrenv().Script = {
             
             --// Circle Gradient Settings \\--
             Gradient = {
-                Enabled = true,
-                Rotation = 120,
+                Enabled = false,
+                Rotation = 0,
                 
                 Colors = {
                     One = Color3.fromRGB(246, 198, 208),
@@ -192,7 +192,7 @@ getrenv().Script = {
                 
                 --// Circle Gradient Animation Settings \\--
                 Animation = {
-                    Enabled = true,
+                    Enabled = false,
                     Speed = 3,
                     Offset = Vector2.new(0, 0),
                 },
@@ -200,15 +200,15 @@ getrenv().Script = {
             
             --// Circle Stroke Settings \\--
             Stroke = {
-                Visible = true,
+                Visible = false,
                 Transparency = 0,
                 Thickness = 2.5,
                 Color = Color3.fromRGB(246, 198, 208),
                 
                 --// Circle Stroke Gradient Settings \\--
                 Gradient = {
-                    Enabled = true,
-                    Rotation = 120,
+                    Enabled = false,
+                    Rotation = 0,
                     
                     Colors = {
                         One = Color3.fromRGB(246, 198, 208),
@@ -217,7 +217,7 @@ getrenv().Script = {
                     
                     --// Circle Stroke Gradient Animation Settings \\--
                     Animation = {
-                        Enabled = true,
+                        Enabled = false,
                         Speed = 3,
                         Offset = Vector2.new(0, 0),
                     },
