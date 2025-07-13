@@ -2326,10 +2326,6 @@ local Button = ExploitsTab:CreateButton({
 })
 
 local Button = ExploitsTab:CreateButton({
-   Name = "Bates AutoShoot",
-   
-
-local Button = ExploitsTab:CreateButton({
    Name = "NetWork Desync (Needs X Keybind)",
    Callback = function()
    local Key = "X"
