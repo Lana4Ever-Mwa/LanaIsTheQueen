@@ -83,6 +83,7 @@ local Button = LocksTab:CreateButton({
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/khenn791/script-khen/refs/heads/main/SilentAim", true))();
+})
 
 local Button = LocksTab:CreateButton({
    Name = "Vascal Silent Aim",
