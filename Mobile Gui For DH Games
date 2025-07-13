@@ -88,6 +88,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/khenn791/script-khen/
 local Button = LocksTab:CreateButton({
    Name = "Vascal Silent Aim",
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/VascalSilentaim/main/README.md"))()
+})
 
 local Button = LocksTab:CreateButton({
    Name = "Vascal CamLock",
