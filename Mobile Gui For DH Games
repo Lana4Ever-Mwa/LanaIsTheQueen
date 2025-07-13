@@ -63,7 +63,7 @@ local LocksSection = LocksTab:CreateSection("Locks")
 })
 
 local Button = LocksTab:CreateButton({
-   Name = "Silent Aim-Resolver",
+   Name = "Silent Aim Resolver",
    getgenv().khen = {
     ['Silent'] = {
         Normal = {
