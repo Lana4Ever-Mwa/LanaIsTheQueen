@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "Mobile Supported GUI",
@@ -1180,13 +1180,6 @@ local Button = UseFulTab:CreateButton({
    Name = "KeyBoard",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-   end,
-})
-
-local Button = UseFulTab:CreateButton({
-   Name = "Resolver 1",
-   Callback = function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/Zolowner/ZolexResolverV1/main/subscribeToNechoscript'))()
    end,
 })
 
