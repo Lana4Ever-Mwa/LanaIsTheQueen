@@ -88,6 +88,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/khenn791/script-khen/
 })
 
 local Button = LocksTab:CreateButton({
+   Name = "Vascal Silent Aim",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/VascalSilentaim/main/README.md"))()
+   end,
+})
+
+local Button = LocksTab:CreateButton({
    Name = "Vascal CamLock",
    Callback = function()
    loadstring(game:HttpGet("https://scriptblox.com/raw/Stomp-Shop-Da-Strike-PSXbox-Vascal-Lock-14629"))()
