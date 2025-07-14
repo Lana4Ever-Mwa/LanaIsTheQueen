@@ -70,12 +70,12 @@ local Button = LocksTab:CreateButton({
         Normal = {
             Enabled = true,
             HitPart = "HumanoidRootPart",
-            Prediction = 0.1657724,
+            Prediction = 0.18529,
             AirPrediction = 0.149,
         },
         FOV = {
-            FOVSize = 130,
-            ShowFOV = true,
+            FOVSize = 120,
+            ShowFOV = false,
         },
         Resolver = {
             Enabled = true,
@@ -1959,6 +1959,13 @@ local Button = ExploitsTab:CreateButton({
    Name = "BallWare (Works in some games)",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DHBCommunity/DHBOfficialScript/main/FinallyV4"))()
+   end,
+})
+
+local Button = ExploitsTab:CreateButton({
+   Name = "Fearless autoshoot",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/sFRhVLwZ "))()
    end,
 })
 
