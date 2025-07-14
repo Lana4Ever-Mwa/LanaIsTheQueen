@@ -63,6 +63,31 @@ local LocksSection = LocksTab:CreateSection("Locks")
 })
 
 local Button = LocksTab:CreateButton({
+   Name = "Advanced Silent Aim",
+   Callback = function()
+   getgenv().khen = {
+    ['Silent'] = {
+        Normal = {
+            Enabled = true,
+            HitPart = "HumanoidRootPart",
+            Prediction = 0.1657724,
+            AirPrediction = 0.149,
+        },
+        FOV = {
+            FOVSize = 130,
+            ShowFOV = true,
+        },
+        Resolver = {
+            Enabled = true,
+        }
+    },
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/khenn791/script-khen/refs/heads/main/SilentAim", true))();
+   end,
+})
+
+local Button = LocksTab:CreateButton({
    Name = "Xora Advanced Silent Aim",
    Callback = function()
    --// Script Config \\--
