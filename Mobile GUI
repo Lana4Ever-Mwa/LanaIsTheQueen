@@ -36,31 +36,6 @@ local Window = Rayfield:CreateWindow({
       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-
-local MainTab = Window:CreateTab("Main", "sparkles")
-local MainSection = MainTab:CreateSection("Main")
-
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE!"})
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent Aim and Elysian Exploits. You can combine scripts to make them more better!"})
-local Paragraph = MainTab:CreateParagraph({Title = "Note:", Content = "Some lock scripts also may not work due to the games AntiCheat. If so use Xoras Bypassed Silent Aim or Xoras Advanced Silent Aim."})
-local Divider = MainTab:CreateDivider()
-
-   local Dropdown = MainTab:CreateDropdown({
-   Name = "Themes",
-   Options = {"Bloom","Serenity","Amethyst","Ocean","AmberGlow","DarkBlue","Green","Light","Default"},
-   CurrentOption = {"Light"},
-   MultipleOptions = false,
-   Flag = "Dropdown1",
-   Callback = function(Options)
-   Window.ModifyTheme(Options[1])
-   end,
-})
-
-local Divider = MainTab:CreateDivider()
-
-local LocksTab = Window:CreateTab("Locks", "lock-keyhole")
-local LocksSection = LocksTab:CreateSection("Locks")
-
     Rayfield:Notify({
    Title = "You've exucuted the GUI!",
    Content = "Enjoy!",
