@@ -37,8 +37,6 @@ local MainTab = Window:CreateTab("Main", "sparkles")
 local MainSection = MainTab:CreateSection("Main")
 
 local Paragraph = MainTab:CreateParagraph({Title = "Scripts Warning:", Content = "Some scripts may cause a permanent ban on Da Hood games...SO BEWARE!"})
-local Paragraph = MainTab:CreateParagraph({Title = "Scripts:", Content = "Test the scripts out and find the one you feel most comfortable with, most recommended scripts are Xora Advanced Silent Aim and Elysian Exploits. You can combine scripts to make them more better!"})
-local Paragraph = MainTab:CreateParagraph({Title = "Note:", Content = "Some lock scripts also may not work due to the games AntiCheat. If so use Xoras Bypassed Silent Aim or Xoras Advanced Silent Aim."})
 local Divider = MainTab:CreateDivider()
 
    local Dropdown = MainTab:CreateDropdown({
