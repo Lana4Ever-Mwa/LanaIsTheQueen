@@ -132,13 +132,6 @@ local Button = AntiLockTab:CreateButton({
    end,
 })
 
-local Button = AntiLockTab:CreateButton({
-   Name = "Vascal AntiLock",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Gwaporoblox/Sub-to-vascal/main/Vascal-Antilock-tool"))()
-   end,
-})
-
 local FlyScriptsTab = Window:CreateTab("FlyScripts", "plane")
 local Section = FlyScriptsTab:CreateSection("FlyScripts")
 
