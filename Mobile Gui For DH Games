@@ -1144,6 +1144,7 @@ local Button = UseFulTab:CreateButton({
 local Button = UseFulTab:CreateButton({
    Name = "Azure ESP",
    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
    -- esp.lua
 --// Variables
 local Players = game:GetService("Players")
